@@ -1,5 +1,8 @@
 # Online thesis text
 
+
+Here I will update my work on my thesis as we go. It is intended to be structured but not as formal as the final text. To be discussed: Which content can be in a public folder.
+
 ## Table of contents
 [Literature list](#Literature-list)
 
@@ -7,7 +10,7 @@
 
 [Planning](#Planning)
 
-Here I will update my work on my thesis as we go. It is intended to be structured but not as formal as the final text.
+
 
 ## <a name="Literature-list"></a> Literature list 
 <details>
@@ -27,6 +30,19 @@ A few lines about this paper.
 	- Topic 2
 		1. Subtopic 1
 		2. Subtopic 2
+- Romain & Loes 29 May
+- Leuven/Delft/Liege consortium meeting 10 July
+- WG 3.2 meeting 11 July
+- Romain & Loes 11 July
+	- Added to LIFE Slack. Most relevant groups are 3.2, 3.3, 4.1
+- Romain & Ida & Lian 11 July
+	- MC simulations take long. Python functionality to dump outcomes
+ of MC into file once and load it in from there.
+	- Python code gives error on Windows because it doesn't have a /tmp folder as in Unix based systems.
+	- Idea to have joint meeting with Delft & Leuven every other week? To be figured out what is feasible for everyone. 
+	- 3rd week of August, internal office moving in Delft should be done
+
+
 ## Planning
 
 Just a first rough outline as conversation starter! Anything can be adapted.
@@ -52,11 +68,12 @@ Explore [150h] July & August
 Deep thinking [150h] September
 
 - Work out theory further for analytical or somewhat analytical+numerical component (tbd)
+- How to know the covariance matrix, given our knowledge on the instrument architecture and a small bit of observations. 
 
 Implement something [150h] October-December
 
 - Try out some new innovative approach, and/or
-- Integrate existing elements
+- Integrate existing elements in SCIFYsim, LIFEsim?
 
 Apply / test [150h] January - mid-February
 
