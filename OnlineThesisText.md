@@ -1,9 +1,9 @@
 # Online thesis text
 
 ## Table of contents
-[Literature list] #Literature-list
-[Meetings] #Meetings
-[Planning] #Planning
+[Literature list](#Literature-list)
+[Meetings](#Meetings)
+[Planning](#Planning)
 
 Here I will update my work on my thesis as we go. It is intended to be structured but not as formal as the final text.
 
