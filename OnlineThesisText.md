@@ -12,15 +12,13 @@ Here I will update my work on my thesis as we go. It is intended to be structure
 ## <a name="Literature-list"></a> Literature list 
 <details>
 <summary> Everyone et al. 2024 </summary>
-A few lines about this paper
+A few lines about this paper.
 </details>
 
+
 - Lay 
-
 - LIFE paper 1
-
 - LIFE paper 2
-
 - Etc.
 
 ## Meetings 
