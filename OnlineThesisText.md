@@ -1,8 +1,13 @@
 # Online thesis text
 
+## Table of contents
+[Literature list] #Literature-list
+[Meetings] #Meetings
+[Planning] #Planning
+
 Here I will update my work on my thesis as we go. It is intended to be structured but not as formal as the final text.
 
-## Literature list
+## <a name="Literature-list"></a> Literature list 
 - Everyone et al. 2024
 - Lay 
 - LIFE paper 1
@@ -62,10 +67,19 @@ Buffer [150h] rest of March
 Next thesis deadline: mid-June
 
 ## Syntax for images, links, code snippets etcetera
-![alt text](http:/picsum.photos/200/200)
+
+An ** image **:
+![alt text](http://picsum.photos/200/200)
+
 What is your favourite `variable`?
+
+A * fantastic * script: 
 ```javascript
 let num = Math.random();
 ``` 
+
 > This is a block quote
+
 [Useful link?](https://youtube.com/watch?v=dQw4w9WgXcQ)
+
+~~ got you! ~~
