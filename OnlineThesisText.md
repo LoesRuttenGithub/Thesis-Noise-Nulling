@@ -2,13 +2,18 @@
 
 ## Table of contents
 [Literature list](#Literature-list)
+
 [Meetings](#Meetings)
+
 [Planning](#Planning)
 
 Here I will update my work on my thesis as we go. It is intended to be structured but not as formal as the final text.
 
 ## <a name="Literature-list"></a> Literature list 
-- Everyone et al. 2024
+<details>
+<summary> Everyone et al. 2024 </summary>
+A few lines about this paper
+</details
 - Lay 
 - LIFE paper 1
 - LIFE paper 2
@@ -68,12 +73,12 @@ Next thesis deadline: mid-June
 
 ## Syntax for images, links, code snippets etcetera
 
-An ** image **:
+An **image**:
 ![alt text](http://picsum.photos/200/200)
 
 What is your favourite `variable`?
 
-A * fantastic * script: 
+A *fantastic* script: 
 ```javascript
 let num = Math.random();
 ``` 
