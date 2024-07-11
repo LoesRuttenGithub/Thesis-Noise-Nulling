@@ -13,7 +13,7 @@ Here I will update my work on my thesis as we go. It is intended to be structure
 <details>
 <summary> Everyone et al. 2024 </summary>
 A few lines about this paper
-</details
+</details>
 - Lay 
 - LIFE paper 1
 - LIFE paper 2
