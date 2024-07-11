@@ -17,6 +17,19 @@ Here I will update my work on my thesis as we go. It is intended to be structure
 		2. Subtopic 2
 ## Planning
 
+Just a first rough outline as conversation starter! Anything can be adapted.
+
+| Month | Activity | Hours|
+| --- | --- | --- |
+| July & August | Exploration: Literature and research plan | 150h|
+| September | Deep thinking: Extend theoretical concept | 150h|
+| October-December | Implementation: Create new tool or integrate existing tools | 150h|
+| January- mid-February| TU Delft-based applications | 150h|
+| mid-February - mid-March| Writing and knowledge transfer | 150h|
+| mid-March - end-March| Buffer | 150h|
+
+
+
 Explore [150h] July & August
 
 - Explore key questions in instrumental noise for nulling interferometry
@@ -48,5 +61,11 @@ Buffer [150h] rest of March
 
 Next thesis deadline: mid-June
 
-## Useful links
-[Or not...](https://youtube.com/watch?v=dQw4w9WgXcQ)
+## Syntax for images, links, code snippets etcetera
+![alt text](http:/picsum.photos/200/200)
+What is your favourite `variable`?
+```javascript
+let num = Math.random();
+``` 
+> This is a block quote
+[Useful link?](https://youtube.com/watch?v=dQw4w9WgXcQ)
