@@ -16,8 +16,11 @@ A few lines about this paper
 </details>
 
 - Lay 
+
 - LIFE paper 1
+
 - LIFE paper 2
+
 - Etc.
 
 ## Meetings 
