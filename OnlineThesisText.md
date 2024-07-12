@@ -92,7 +92,7 @@ Anticipated papers:
 - Photobombing
 
 ## Meetings 
-- Romain & Loes 3 May
+- **Romain & Loes 3 May**
 	- Start in July (tbc with Rose)
 	- Start with literature study, first version around august
 	- Then define perimeter and objective. 
@@ -106,10 +106,16 @@ Anticipated papers:
 	- Possible output of thesis: 
 		- Library of errors. Helpful in the future (and would be helpful now) to make approach to calculate errors more standardised. Idea is to collect errors from different instrumental sources and allow a wider group of scientists to build simulations for different instrumental configurations. Idea to explore: get in touch with many different types of engineers e.g. at teams of AMOS, with support of Jérôme.
 		- Second output: Impact of instrumental noise, possibly also correlated noise. 3rd order error is still there. We don’t have good model to express covariance. Maybe work out semi-analytical/semi-numerical estimate, build on Lian’s results.
-	- Lian's work: Present practical benefits of Kernel architecture with help of more complete figures of merit than just 'yield'.
+	- Lian's work: Present practical benefits of Kernel architecture via more complete figure of merit than just 'yield'.
 
 
-- Romain & Loes 29 May
+- **Romain & Loes 29 May**
+	- Overview of Loes' statistics course: 
+		- First half is on frequentist method, ordinary/weighted/total/non-linear least squares, robust regression, regularised regression, bootstrapping, model selection
+		- Second half on Bayesian statistics: priors, likelihood, numerical methods including Monte Carlo simulations, Bayesian model comparison, Gaussian processes
+	- Discussion of Lay 2004: Fundamental noise is statistical variation in light from planets, host star, background. Instrumental noise is noise due to drift, mirror (mis-)alignment and generally correlated. The errors in interferometry are generally not Gaussian, because the intensity of the fringe pattern varies with $$cos^2$$. Lay 2004 presents an *analytical approach* with as input error a phase and amplitude misalignment, and a 2nd order Taylor series as output. Some terms that are summed in the Taylor series are correlated. You want to obtain the covariance matrix. With this, you can make a whitening matrix to rescale and rotate covariance matrix. Challenge is that there are only few exposures. You want to know beforehand what the covariance matrix looks like.  
+
+
 - Leuven/Delft/Liege consortium meeting 10 July
 - WG 3.2 meeting 11 July
 - Romain & Loes 11 July
