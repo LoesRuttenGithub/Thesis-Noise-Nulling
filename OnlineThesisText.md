@@ -14,7 +14,7 @@ Here I will update my work on my thesis as we go. It is intended to be structure
 
 ## <a name="Literature-list"></a> Literature list 
 <details>
-<summary> Quantz et al. 2022: LIFE Paper 1 </summary>
+<summary> Quantz et al. 2022: LIFE Paper 1: Improved exoplanet detection yield estimates </summary>
 
 Description of LIFE space mission with 4 formation flying infrared telescopes. Paper presents an intstrument simulator with all sources of astrophysical noise (but not yet including instrumental noise) which was coupled with the P-Pop Monte Carlo tool of a synthetic exoplanet population. The gain (yield per unit time) was averaged over 500 MC realisations.
 
@@ -51,10 +51,42 @@ It has been argued by previous studies that 30 to 50 exoplanets need to be studi
 </details>
 
 
-- Lay 
-- LIFE paper 1
-- LIFE paper 2
-- Etc.
+<details>
+<summary> Laugier et al. 2022: Asgard/NOTT: L-band nulling interferometry at the VLTI </summary>
+</details>
+
+<details>
+<summary> Martinache & Ireland 2018: Kernel-nulling for a robust direct interferometric detection of extrasolar planets </summary>
+</details>
+
+<details>
+<summary> Ceau et al. 2019: Kernel-phase detection limits (JWST) </summary>
+</details>
+
+<details>
+<summary> Lay 2004: Systematic errors in nulling interferometers </summary>
+</details>
+
+<details>
+<summary> Bracewell 1978: Detecting nonsolar planets by spinning infrared interferometer </summary>
+</details>
+
+<details>
+<summary> Dannert et al. 2022: LIFE paper 2: Signal simulation, extraction and exoplanet parameters from single epoch observations </summary>
+</details>
+
+<details>
+<summary> Angel and Woolf 1996: An imaging nulling interferometer to study extrasolar planets </summary>
+</details>
+
+<details>
+<summary> Laugier et al. 2020: Kernel nullers for an arbitrary number of apertures </summary>
+</details>
+
+<details>
+<summary> Flasseur et al. 2024: Shrinkage MMSE estimators of covariances beyond the zero-mean and stationary variance assumptions </summary>
+</details>
+
 
 Anticipated papers:
 - Photobombing
