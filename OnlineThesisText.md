@@ -14,8 +14,14 @@ Here I will update my work on my thesis as we go. It is intended to be structure
 
 ## <a name="Literature-list"></a> Literature list 
 <details>
-<summary> Everyone et al. 2024 </summary>
-A few lines about this paper.
+<summary> Quantz et al. 2022: LIFE Paper 1 </summary>
+Description of LIFE space mission with 4 formation flying infrared telescopes. Paper presents an intstrument simulator with all sources of astrophysical noise (but not yet including instrumental noise) which was coupled with a Monte Carlo simulation of a synthetic exoplanet population. Based on 4 2m apertures, it was estimated that within 20 p of the sun, 25-45 rocky exoplanets within the habitable zones could be detected, and doubling these numbers with 3,5m apertures. In a first observation, estimates of radii and effective temperatures of exoplanets could be made, followed by estimates of of thermal emission spectra in a second visit.
+
+It is known from Kepler, Tess and Radial Velocity surveys that planets similar to Earth should be very abundant. In the future, James Webb Space Telescope may reveal if planets around red dwarfs can retain their atmospheres despite high levels of activity of their host stars. ESA's Ariel will provide transmission and emission spectra of exoplanets with warm hydrogen-dominated atmospheres. The ~30m ground based Extremely Large Telescopes will be able to detect thermal spectra of small planets around nearby stars using the mid-infrared METIS spectrograph. In addition, the PCS and HIRES will detect via reflected light.
+
+The US-led Habitable Exoplanet Observatory HabEx and the Large UV/Optical/IR Surveyor LUVOIR  is intended to study the atmospheres of several dozen small exoplanets in Habitable Zones via reflected light.
+
+LIFE explores the development of a space-based mid-infrared nulling interferometer within ESA's Voyage 2050 program, building upon studies of the Darwin mission and Terrestrial Planet Finder - Interferometer
 </details>
 
 
@@ -23,6 +29,9 @@ A few lines about this paper.
 - LIFE paper 1
 - LIFE paper 2
 - Etc.
+
+Anticipated papers:
+- Photobombing
 
 ## Meetings 
 - Romain & Loes 3 May
@@ -36,10 +45,9 @@ A few lines about this paper.
 - Romain & Loes 11 July
 	- Added to LIFE Slack. Most relevant groups are 3.2, 3.3, 4.1
 - Romain & Ida & Lian 11 July
-	- MC simulations take long. Python functionality to dump outcomes
- of MC into file once and load it in from there.
+	- MC simulations take long. Idea to use Python functionality to dump outcomes into file and load from there.
 	- Python code gives error on Windows because it doesn't have a /tmp folder as in Unix based systems.
-	- Idea to have joint meeting with Delft & Leuven every other week? To be figured out what is feasible for everyone. 
+	- Idea to have joint meeting with Delft & Leuven every other week? To be determined.
 	- 3rd week of August, internal office moving in Delft should be done
 
 
@@ -90,9 +98,18 @@ Buffer [150h] rest of March
 
 Next thesis deadline: mid-June
 
+## First quick literature review
+- Occurrence of exoplanets as we know so far and main methods
+- Parallel initiatives to determine exoplanets (LUVOIR, etc)
+- Assets of infrared nulling interferometry
+- Idea behind nulling interferometry
+- Sources of fundamental noise
+- Sources of instrumental noise
+
 ## Syntax for images, links, code snippets etcetera
 
 An **image**:
+
 ![alt text](http://picsum.photos/200/200)
 
 What is your favourite `variable`?
@@ -106,4 +123,4 @@ let num = Math.random();
 
 [Useful link?](https://youtube.com/watch?v=dQw4w9WgXcQ)
 
-~~ got you! ~~
+~~got you!~~
