@@ -54,7 +54,28 @@ It has been argued by previous studies that 30 to 50 exoplanets need to be studi
 <details>
 <summary> Laugier et al. 2022: Asgard/NOTT: L-band nulling interferometry at the VLTI </summary>
 </details>
+NOTT = Nulling Observations of ExoplaneTs and dusT, beam combiner for VLTI which aims to resolve young giant exoplanets around nearby stars down to 5 mas with $10^5$ contrast in the L-band. Down to mag 7, errors are dominated by correlated instrumental errors. Beyond that magnitude, the thermal background of the relay and telescope are dominant. Nulling interferometry is based on the technique to tune phases f acombined beam, creating a dark fringe. The path length difference must be matched within a fraction of the wavelength. The technique was first proposed by Bracewell (1978) and in particular the sin-chop architecture of Angel & Woolf (1997) is considered. Phase errors due to errors in the optical path difference caused by turbulence in the atmosphere can be cancelled out using *kernel-nulling*, as proposed by Martinache & Ireland (2018). 
 
+*SCIFIsim* was developed to simulate the effects of instrumental noise on nulling-interferometry. It takes into account wavelength dependence, via chromatic combination, which means that the coupler matrix, representing the architecture, is wavelength dependent. For each wavelength bin and microsecond order subexposure the following steps are executed by SCIFYsim:
+- A vector of the the real spectrum collected by the telescope is transferred into a complex phasor, encoding also the geometric position, optical abberations , transmission map of the waveguide and optical transmission
+- This is combined with the complex amplitude of each source, to compute the complex amplitude of light entering the integrated beam combiners
+- This is multiplied with the matrix of the beam combiner to get the complex amplitude at the outputs, namely the exact signal, the errors and the total signal.
+The spectrograph modules convolves the intensity at the output with a spectroscopic point spread function via a MonteCarlo simulation to form a 2D array of pixels. Throughput and thermal background are evaluated based on transmisson-emission objects. Thermal background is computed via Planck's law. 
+
+Main sources of errors included in the model:
+- Abberations in the beam produce variations in the focal plane complex amplitude upon injection into single-mode waveguides
+- Residual optical path errors, computed via the GRAVITY fringe tracker
+- Internal combiner chromatic errors, modelled using order 6 polynomial, which leads to imperfect nulling. Mitigated using variable thickness planes.
+- Not included: Longitudinal atmospheric dispersion, assumed to be compensated by ZnSe corrector plates to first order.
+There is a higher correlation in erros closer to the nominal scheme. 
+
+The distribution of errors is studied, and the Shapiro-Wilk test for 'Gaussian noise' fails beyond 400 samples for 3 seconds detector integration time. But Gaussian model is still practical to use. 
+
+The covariance matrix of the total errors is the sum of read-out noise, photon noise and instrumental noise. It is assumed that detection integration time measurements are statistically independent. The data is averaged over several chunks or 'observing blocks' whose errors are assumed uncorrelated.
+
+Result: the inner part of the spectrum is correlated together. the outer part of the spectrum is anti-correlated. 
+
+A series of statistical detection tests is done based on Ceau et al. 2019. The covariance matrix is 'block-diagonal' with size $n_{chunks}\times n_{channels} \times n_{outputs}$
 <details>
 <summary> Martinache & Ireland 2018: Kernel-nulling for a robust direct interferometric detection of extrasolar planets </summary>
 </details>
@@ -119,12 +140,10 @@ Anticipated papers:
 	- Low hanging fruit: extraction of signal with and without whitening
 	- Error trifecta: Lay assumes that statistics are centred on zero. But what if you have a bias? In that case many symmetric terms of Lay's Taylor series don't cancel out, analytical mess.  
 
-<img src="https://github.com/LoesRuttenGithub/Thesis-Noise-Nulling/blob/main/Figures/ErrorTrifacta.png" width="100" height="100">
-
-![alt text](https://github.com/LoesRuttenGithub/Thesis-Noise-Nulling/blob/main/Figures/ErrorTrifacta.png|width=100)
+<img src="https://github.com/LoesRuttenGithub/Thesis-Noise-Nulling/blob/main/Figures/ErrorTrifacta.png" width="250" height="300">
 
 
-- Leuven/Delft/Liege consortium meeting 10 July
+- **Leuven/Delft/Liege consortium meeting 10 July**
 - WG 3.2 meeting 11 July
 - Romain & Loes 11 July
 	- Added to LIFE Slack. Most relevant groups are 3.2, 3.3, 4.1
