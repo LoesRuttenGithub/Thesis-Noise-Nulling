@@ -119,7 +119,7 @@ Anticipated papers:
 	- Low hanging fruit: extraction of signal with and without whitening
 	- Error trifecta: Lay assumes that statistics are centred on zero. But what if you have a bias? In that case many symmetric terms of Lay's Taylor series don't cancel out, analytical mess.  
 
-![alt text](https://github.com/LoesRuttenGithub/Thesis-Noise-Nulling/blob/main/Figures/ErrorTrifacta.png | width=100)
+![alt text](https://github.com/LoesRuttenGithub/Thesis-Noise-Nulling/blob/main/Figures/ErrorTrifacta.png|width=100)
 
 
 - Leuven/Delft/Liege consortium meeting 10 July
