@@ -137,13 +137,13 @@ Anticipated papers:
 
 Just a first rough outline as conversation starter! Anything can be adapted.
 
-| Month | Activity | Hours|
+| Month | Activity | Hours | Comments |
 | --- | --- | --- |
-| July & August | Exploration: Literature and research plan | 150h|
-| September | Deep thinking: Extend theoretical concept | 150h|
-| October-December | Implementation: Create new tool or integrate existing tools | 150h|
-| January- mid-February| TU Delft-based applications | 150h|
-| mid-February - mid-March| Writing and knowledge transfer | 150h|
+| July & August | Exploration: Literature and research plan | 150h| Fulltime except last 2 weeks of July
+| September | Deep thinking: Extend theoretical concept | 150h| Fulltime
+| October-December | Implementation: Create new tool or integrate existing tools | 150h| ~2 days per week. Romain in Nice for ~5 weeks starting in November
+| January- mid-February| TU Delft-based applications | 150h |
+| mid-February - mid-March| Writing and knowledge transfer | 150h |
 | mid-March - end-March| Buffer | 150h|
 
 
