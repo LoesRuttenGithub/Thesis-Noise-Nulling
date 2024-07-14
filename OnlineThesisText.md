@@ -119,7 +119,7 @@ Anticipated papers:
 	- Low hanging fruit: extraction of signal with and without whitening
 	- Error trifecta: Lay assumes that statistics are centred on zero. But what if you have a bias? In that case many symmetric terms of Lay's Taylor series don't cancel out, analytical mess.  
 
-![alt text](https://github.com/LoesRuttenGithub/Thesis-Noise-Nulling/blob/main/Figures/ErrorTrifacta.png)
+![alt text](https://github.com/LoesRuttenGithub/Thesis-Noise-Nulling/blob/main/Figures/ErrorTrifacta.png | width=100)
 
 
 - Leuven/Delft/Liege consortium meeting 10 July
@@ -138,13 +138,13 @@ Anticipated papers:
 Just a first rough outline as conversation starter! Anything can be adapted.
 
 | Month | Activity | Hours | Comments |
-| --- | --- | --- |
-| July & August | Exploration: Literature and research plan | 150h| Fulltime except last 2 weeks of July
-| September | Deep thinking: Extend theoretical concept | 150h| Fulltime
-| October-December | Implementation: Create new tool or integrate existing tools | 150h| ~2 days per week. Romain in Nice for ~5 weeks starting in November
-| January- mid-February| TU Delft-based applications | 150h |
-| mid-February - mid-March| Writing and knowledge transfer | 150h |
-| mid-March - end-March| Buffer | 150h|
+| --- | --- | --- | --- |
+| July & August | Exploration: Literature and research plan | 150h| Fulltime except last 2 weeks of July |
+| September | Deep thinking: Extend theoretical concept | 150h| Fulltime |
+| October-December | Implementation: Create new tool or integrate existing tools | 150h| ~2 days per week. Romain 5 weeks in Nice from Nov |
+| January- mid-February| TU Delft-based applications | 150h | ~2 days per week|
+| mid-February - mid-March| Writing and knowledge transfer | 150h | Fulltime |
+| mid-March - end-March| Buffer | 150h| Fulltime |
 
 
 
