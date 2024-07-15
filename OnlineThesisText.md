@@ -158,13 +158,23 @@ Anticipated papers:
 
 
 - WG 3.2 meeting 11 July
-- Romain & Loes 11 July
-	- Added to LIFE Slack. Most relevant groups are 3.2, 3.3, 4.1
-- Romain & Ida & Lian 11 July
+	- Jens Kammerer (topic: yield estimation), Daniel Angerman (project manager), Felix Dannert (PhD on instrumental noise), Angelica Kovacevic (extragalactic time astronomy), Philipp Huber (PhD on instrumentation) 
+	- Presentation on PHIRINGE, photon count data generator for nulling interferometers. Takes config files based on astropy and scipy. Uncertainty in flux estimated from spread in (MC simulated?) data. Open question is to find the cleanest way to estimate uncertainty. 
+	- SCIFYsim, initially for NOTT. Efforts made to include symbolic math, but so far not as useful as hoped. Instrumental noise is correlated, interesting to extract. Tip: old gravitational wave literature has analysis on the noise introduced by different tools. 
+	- Discussion afterwards: Loes has been added to LIFE Slack. Most relevant groups are 3.2 LifeSIM, 3.3 signal procext, 4.1 nulling tech. Thesis could include some joint interphase with PHIRINGE, SCIFYsim and LIFEsim. Datastandard from NIFits group should provide 'one way of doing stuff'. Other idea: explain impact of Lay's assumption of optical alignment and correlated terms within sum for non-ideal case. With Monte Carlo you can only 'retrofit' the underlying distribution if you have strong confidence in the underlying model. Some new numerical tools could be explored, machine learning algorithms that do a symbolic search. 
+
+
+- **Romain & Ida & Lian 11 July*
 	- MC simulations take long. Idea to use Python functionality to dump outcomes into file and load from there.
 	- Python code gives error on Windows because it doesn't have a /tmp folder as in Unix based systems.
 	- Idea to have joint meeting with Delft & Leuven every other week? To be determined.
 	- 3rd week of August, internal office moving in Delft should be done
+
+- **Meeting Loes & Romain 12/7**
+	- Question why linear setup is still interesting compared to 2D layout. Has to do with broader rejection, so it still works if your star is resolved as a disk. Key concept is spatial coherence, explained further in Angel & Woolf. Useful to review theory ondiffraction and point spread function of telescopes.
+	- Does nulling interferometry also work for binaries, as some research concluded that the majority of stars are binary systems? Yes, as long as the other star is not in the field of view. Moreover, mostly heavy stars are binaries, and in the solar neighbourhood are many lighter stars.
+	- Question about symmetric baselines: They are redundant if they are exactly the same, skew gives more results. Best layout to be studied further. Can we choose optimal baseline for specific molecular lines in the spectrum? Not needed, because planet generally (if not face-on) will move over different angular separations as projecten on the line of sight. 
+	- Hint for JWST Kernel-phase paper: kernel-phase is not the same as kernel-null. It's more like a closure phase. Focus on statistics in that paper. Tutorial based on on Ceau does not include correlation and whitening yet. Main question: what to put in matrix that is representative?
 
 
 ## Planning
