@@ -24,8 +24,6 @@ It is known from Kepler, Tess and Radial Velocity surveys that planets similar t
 
 ESA's Ariel will provide transmission and emission spectra of exoplanets with warm hydrogen-dominated atmospheres. The ~30m ground based Extremely Large Telescopes will be able to detect thermal spectra of small planets around nearby stars using the mid-infrared METIS spectrograph. In addition, the PCS and HIRES will detect via reflected light.
 
-[Add some words about PLATO]
-
 The US-led Habitable Exoplanet Observatory HabEx and the Large UV/Optical/IR Surveyor LUVOIR  is intended to study the atmospheres of several dozen small exoplanets in Habitable Zones via reflected light.
 
 Several high-precision RV instruments are planned: CARMENES, NIRPS, ESPRESSO, MAROON-X, HARPS3, EXPRES, so it is expected that a significant fraction of exoplanets within 20 pc will be uncovered. In that case, more LIFE observation time can go to characterisation.
@@ -80,6 +78,7 @@ A series of statistical detection tests is implemented based on Ceau et al. 2019
 Results: A simulation for a K-dwarf gave sensitivity maps for different magnitudes. In the center, where the lobes of transition maps of different wavelengths overlap, there is most sensitivity. Except for bright stars, for which in the center, the planet pattern looks similar to the instrumental noise, therefore the performance in outer regions is better.
 </details>
 
+<details>
 <summary> Martinache & Ireland 2018: Kernel-nulling for a robust direct interferometric detection of extrasolar planets </summary>
 </details>
 
@@ -93,6 +92,10 @@ Results: A simulation for a K-dwarf gave sensitivity maps for different magnitud
 
 <details>
 <summary> Bracewell 1978: Detecting nonsolar planets by spinning infrared interferometer </summary>
+
+Written before discovery of exoplanets. Bracewell emphasises potential of infrared to study exoplanets, because in the visible, a planet emits $\sim 10^{-9}$ the flux of starlight, but in the Rayleigh-Jeans regime of IR, the factor would be $ \sim 10^{-4}$ which is a *relative difference of $10^5$ between visible and infrared*. Bracewell proposes placing an interference null on the star. The star+planet signal can be disentangled by *rotating the interferometer*, which will modulate the (asymmetric) planet signal but will keep the stellar signal constant. Effects of pointing errors can be mitigated by designing the architecture such that a planet is $k$ fringe spacings away, so that the star signal modulation from misalignment has a different period than the planet modulation. Photon noise mainly originating from zodiacal light is pointed out as the main challenge when studying planetary photons. At the time of writing, not enough was known about the infrared environment in Earth's atmosphere, the solar system, as well as galactic and extragalactic contributions, to be sure that exoplanets could be measured over other incoming environmental infrared radiation.
+
+
 </details>
 
 <details>
@@ -157,14 +160,14 @@ Anticipated papers:
 
 
 
-- WG 3.2 meeting 11 July
+- **WG 3.2 meeting 11 July**
 	- Jens Kammerer (topic: yield estimation), Daniel Angerman (project manager), Felix Dannert (PhD on instrumental noise), Angelica Kovacevic (extragalactic time astronomy), Philipp Huber (PhD on instrumentation) 
 	- Presentation on PHIRINGE, photon count data generator for nulling interferometers. Takes config files based on astropy and scipy. Uncertainty in flux estimated from spread in (MC simulated?) data. Open question is to find the cleanest way to estimate uncertainty. 
 	- SCIFYsim, initially for NOTT. Efforts made to include symbolic math, but so far not as useful as hoped. Instrumental noise is correlated, interesting to extract. Tip: old gravitational wave literature has analysis on the noise introduced by different tools. 
 	- Discussion afterwards: Loes has been added to LIFE Slack. Most relevant groups are 3.2 LifeSIM, 3.3 signal procext, 4.1 nulling tech. Thesis could include some joint interphase with PHIRINGE, SCIFYsim and LIFEsim. Datastandard from NIFits group should provide 'one way of doing stuff'. Other idea: explain impact of Lay's assumption of optical alignment and correlated terms within sum for non-ideal case. With Monte Carlo you can only 'retrofit' the underlying distribution if you have strong confidence in the underlying model. Some new numerical tools could be explored, machine learning algorithms that do a symbolic search. 
 
 
-- **Romain & Ida & Lian 11 July*
+- **Romain & Ida & Lian 11 July**
 	- MC simulations take long. Idea to use Python functionality to dump outcomes into file and load from there.
 	- Python code gives error on Windows because it doesn't have a /tmp folder as in Unix based systems.
 	- Idea to have joint meeting with Delft & Leuven every other week? To be determined.
@@ -185,8 +188,8 @@ Just a first rough outline as conversation starter! Anything can be adapted.
 | --- | --- | --- | --- |
 | July & August | Exploration: Literature and research plan | 150h| Fulltime except last 2 weeks of July |
 | September | Deep thinking: Extend theoretical concept | 150h| Fulltime |
-| October-December | Implementation: Create new tool or integrate existing tools | 150h| ~2 days per week. Romain 5 weeks in Nice from Nov |
-| January- mid-February| TU Delft-based applications | 150h | ~2 days per week|
+| October-December | Implementation: Create new tool or integrate existing tools | 150h| ~2 days per week. Romain 5 weeks in Nice from November |
+| January- mid-February| TU Delft-based applications | 150h | ~2 days per week, depends on exams|
 | mid-February - mid-March| Writing and knowledge transfer | 150h | Fulltime |
 | mid-March - end-March| Buffer | 150h| Fulltime |
 
@@ -226,11 +229,33 @@ Next thesis deadline: mid-June
 
 ## First quick literature review
 - Occurrence of exoplanets as we know so far and main methods 
-- Parallel initiatives to determine exoplanets (LUVOIR, etc)
-- Assets of infrared nulling interferometry
+- Parallel initiatives to determine exoplanets
+	- TESS, Kepler
+	- RV studies
+	- PLATO
+	- JWST
+	- Ariel
+	- ELT: METIS, PCS, HIRES
+	- HabEx / LUVOIR	
+- LIFE & assets of infrared nulling interferometry
+	- Advantages of working in the mid-infrared: More direct constraints on temperature and size of the objects, and spectrum includes molecular absorption lines including biosignatures.
+	- Main design and predicted yield
 - Idea behind nulling interferometry
-- Sources of fundamental noise
+	- Optics, diffraction, PSF, wavefronts etc.
+- Sources of fundamental noise & LIFEsim
+	- Photon noise
+	- Read-out noise
+	- Zodiacal dust
+	- P-pop MC tool
 - Sources of instrumental noise
+	- Explanation how architecture leads to correlated noise
+	- What is unknown for now is 1) the impact of phase and/or amplitude variations as systematic noise sources, and 2) thermal background from the aperture mirrors. 
+	- Studied by Lay
+	- Studied for NOTT
+- Open questions for instrumental noise
+	- Consequence of sub-optimal alignment, error trifecta
+	- Semi-analytical framework 
+
 
 ## Syntax for images, links, code snippets etcetera
 
