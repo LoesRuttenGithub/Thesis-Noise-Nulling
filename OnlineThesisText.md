@@ -80,20 +80,25 @@ Results: A simulation for a K-dwarf gave sensitivity maps for different magnitud
 
 <details>
 <summary> Martinache & Ireland 2018: Kernel-nulling for a robust direct interferometric detection of extrasolar planets </summary>
+To be added!
+
 </details>
 
 <details>
 <summary> Ceau et al. 2019: Kernel-phase detection limits (JWST) </summary>
+To be added!
+
 </details>
 
 <details>
 <summary> Lay 2004: Systematic errors in nulling interferometers </summary>
+To be added!
 </details>
 
 <details>
 <summary> Bracewell 1978: Detecting nonsolar planets by spinning infrared interferometer </summary>
 
-Written before discovery of exoplanets. Bracewell emphasises potential of infrared to study exoplanets, because in the visible, a planet emits $\sim 10^{-9}$ the flux of starlight, but in the Rayleigh-Jeans regime of IR, the factor would be $ \sim 10^{-4}$ which is a *relative difference of $10^5$ between visible and infrared*. Bracewell proposes placing an interference null on the star. The star+planet signal can be disentangled by *rotating the interferometer*, which will modulate the (asymmetric) planet signal but will keep the stellar signal constant. Effects of pointing errors can be mitigated by designing the architecture such that a planet is $k$ fringe spacings away, so that the star signal modulation from misalignment has a different period than the planet modulation. Photon noise mainly originating from zodiacal light is pointed out as the main challenge when studying planetary photons. At the time of writing, not enough was known about the infrared environment in Earth's atmosphere, the solar system, as well as galactic and extragalactic contributions, to be sure that exoplanets could be measured over other incoming environmental infrared radiation.
+Written before discovery of exoplanets. Bracewell emphasises potential of infrared to study exoplanets, because in the visible, a planet emits $\sim 10^{-9}$ the flux of starlight, but in the Rayleigh-Jeans regime of IR, the factor would be $\sim 10^{-4}$ which is a *relative difference of* $10^5$ *between visible and infrared*. Bracewell proposes placing an interference null on the star. The star+planet signal can be disentangled by *rotating the interferometer*, which will modulate the (asymmetric) planet signal but will keep the stellar signal constant. Effects of pointing errors can be mitigated by designing the architecture such that a planet is $k$ fringe spacings away, so that the star signal modulation from misalignment has a different period than the planet modulation. Photon noise mainly originating from zodiacal light is pointed out as the main challenge when studying planetary photons. At the time of writing, not enough was known about the infrared environment in Earth's atmosphere, the solar system, as well as galactic and extragalactic contributions, to be sure that exoplanets could be measured over other incoming environmental infrared radiation.
 
 
 </details>
@@ -104,6 +109,17 @@ Written before discovery of exoplanets. Bracewell emphasises potential of infrar
 
 <details>
 <summary> Angel and Woolf 1996: An imaging nulling interferometer to study extrasolar planets </summary>
+Destructive interference seemed to have a trade-off with high-resolution imaging, but this paper reconciles this via a configuration with a *broad interference null* combined with a cross-correlation technique. When pointed away from the sun, the sensitivity is claimed to be only limited by the photon flux of the planet itself for a space-based interferometer with 50m baselines, 1 m telescopes and 10 hours exposure times.
+
+At the time of writing, four exoplanets had been found. The atmospheric composition is best studied through infrared spectrsoscopy with CO2 lat 15um, water at 7-8 um and ozone at 9.7 um. Ozone is a proxy for the presence of photosynthesis. To resolve planets with a conventional telescope, a mirror diameter of 60 would be needed. Two problems with conventional interferometry are the need for low transmission across the whole stellar disk, and the confusion of dust with planets. The solar system emits 10 um flux 300 times stronger than Earth from about the same orbital distance.
+
+<img src="https://github.com/LoesRuttenGithub/Thesis-Noise-Nulling/blob/main/Figures/AngelWoolf.png" width="800" height="300">
+
+The proposed arrangement has two superimposed Bracewell interferometers with 180$^\circ$ achromatic phase difference and different spacings. The outer pair has an amplitude of almost half of the inner pair, such that the summed amplitude has 0th, 1st and 2nd order zero. The intensity now depends on $\alpha^6$ near the axis, which leads to an exceptionally broad as well as deeper central minimum. The setup is envisioned with a fixed geometry with path lengths adjusted using fixed trombone delay elements. Changes in element spacing are inadvisable because f the risk of mechanical failure.  Like Bracewell, the interferometer world be rotated about the line of sight. As the physics is dependent on wavelength, it will give extra information when the infrared continuum is dispersed into separate narrow-band channels. The images can be recovered by a cross-correlation method, using a Fourier transform, where a summation is taken over rotation angle and wavelength. Off-centre point sources appear twice upon rotation of the interferometer.
+
+Calculations are done for an architecture of four 1m telescopes with a total length of 50m with a synthetic signal of four planets. All planets could be retrieved. The stronger but smooth modulation expected from an elliptical dust cloud would be expected to be straight forward to filter out because it modulates with twice the rotation frequency. Local zodiacal dust, read out noise and dark leakage were assumed negligible. A spectrum is modelled as well. An atmosphere with H20, O3 and CO2 deviates from a black body spectrum via absorption lines. To significantly detect them, 20 SNR is needed. , which would require 80 days of observation. 
+
+If zodiacal dust would be 10 times brighter, we would need 10 times larger telecope area or 10 times longer iterations for the same SNR. 
 </details>
 
 <details>
@@ -254,7 +270,8 @@ Next thesis deadline: mid-June
 	- Studied for NOTT
 - Open questions for instrumental noise
 	- Consequence of sub-optimal alignment, error trifecta
-	- Semi-analytical framework 
+	- Semi-analytical framework for underlying physics of combiner matrix
+	- Standardised language and approach for instrumental errors
 
 
 ## Syntax for images, links, code snippets etcetera
