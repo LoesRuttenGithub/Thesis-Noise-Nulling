@@ -292,7 +292,9 @@ Next thesis deadline: mid-June
 
 Since 1995, the number of detected exoplanets has increased from zero to over 5000. Based on large scale surveys, it is now expected that almost all stars host at least one planet. [reference to be added]. Small planets are more common than gas giants. Earth-sized planets are expected to exist in the habitable zone of approximately 20% of sunlike stars and in 40% of M-dwarfs. In addition to the rocky planets, gas giants and ice giants and their observed orbits in our own solar system, new types of planets were detected named "super-Earths" ($1.5-2 R_E$) and "mini-Neptunes", as well as the presence of 'hot jupiters': gas giants in very close orbits, with super-Earths even being the most common type of planet. The insights have led to improved theories  on the accretion of planets from proto-planetary disks. Moreover, the discovery of 'hot jupiters' let to theories on orbital migration of planets. More detailed and more complete detections of planetary systems are needed to consolidate such theories.
 
-An open question is whether rocky exoplanets in the habitable zone of stars can sustain life. Besides suitable temperatures for water to exist in its liquid form, estimated via the habitable zone which depends on the temperature of the star and the planet's orbit, such planets need an atmosphere, which in theory could be traced by molecules such as CO2 and CH4. Should life as we know it already exist on a planet, then oxygen should be present in the atmosphere, which can be traced through O3. The measurement of the chemical signature and more detailed physics of a planet is referred to as *characterisation*. As planets are very faint compared to their host star, direct characterisation has been very challenging so far and is one of the main aims of upcoming missions.
+An open question is whether rocky exoplanets in the habitable zone of stars can sustain life. Besides suitable temperatures for water to exist in its liquid form, estimated via the habitable zone which depends on the temperature of the star and the planet's orbit, such planets need an atmosphere, which in theory could be traced by molecules such as CO2 and CH4. Should life as we know it already exist on a planet, then oxygen should be present in the atmosphere, which can be traced through O3. The measurement of the chemical signature and more detailed physics of a planet is referred to as *characterisation*. As planets are very faint compared to their host star, direct characterisation has been very challenging so far and is one of the main aims of upcoming missions. 
+It has been argued by previous studies that 30 to 50 exoplanets need to be studied to get statistically robust results on the fraction of habitable rocky HZ exoplanets. 
+
 
 **2. Main detection methods for exoplanets**
 
@@ -306,24 +308,41 @@ An open question is whether rocky exoplanets in the habitable zone of stars can 
 
 
 **3. Assets of infrared nulling interferometry**
-	- Advantages of working in the mid-infrared: More direct constraints on temperature and size of the objects, and spectrum includes molecular absorption lines including biosignatures.
-	- Main design and predicted yield
-- Idea behind nulling interferometry
+
+Despite the ambitious planned missions using a range of exoplanet observation methods, there are several additional aspects that a space-based mid-infrared nulling interferometry mission would bring to the table.
+- Direct imaging puts more direct constraints on temperature and size of the objects than indirect methods, which are based on several assumptions.
+- Higher spatial resolution than single telescopes thanks to the dependence on baseline rather than aperture size. Compared to interferometry in the visible spectrum, longer baselines are needed, but  the necessary baselines to resolve planets around nearby stars are still feasible. 
+- The infrared spectrum includes molecular absorption lines revealing information about planetary atmospheres, including biosignatures.
+- More favourable contrast ratio than interferometry in the visible light: The thermal emission of exoplanets lies in infrared wavelengths, while the light of stars peaks in the visible spectrum (depending on the type). Therefore the required contrast of an instrument to disentangle the signature of the planet from that of the host star is more favourable in the infrared $c\approx 10^6$ than in the visible $c\approx 10^{10}. 
+
+
+
+**4. Main design and predicted yield**
+The main design of the LIFE space mission consists of 4 formation flying infrared telescopes, with apertures to be determined between 2 and 3.5m in a 6:1 X-array configuration, with baselines of 10m to maximum 600m. A mission would consist of a detection phase followed by a characterisation phase which features a second visit to a detected exoplanet. However, the optimal design is an active field of study, with the relevant metrics an active topic of debate. In addition to formation flying, a single-mount configuration is an option. Besides an X-array configuration, a relevant candidate is a linear array representing a double bracewell as described by Angel and Woolf (1997), which has a broader central null to exclude an extended image of a central star. This thesis aims to describe a general framework applicable to multiple configurations. In a study for the yield, a detection criterion of S/N>7 was applied, where the S/N was taken as the square root of the sum of the instrumental and astrophysical noise. For 2m apertures and 5% throughput, in a radius of 20 pc, $\approx 550$ exoplanets with radii between 0.5 and 6 $R_E$ could be detected, of which 25-45 rocky exoplanets within the empirical habitable zone. A large number of these planets would be around nearby M-dwarfs, to which IR interferometry is more sensitive.
+
+<img src="https://github.com/LoesRuttenGithub/Thesis-Noise-Nulling/blob/main/Figures/Artists-impression-LIFE.png" width="700" height="300">
+
+**5. Physics of nulling interferometry**
+	- To be included!
 	- Optics, diffraction, PSF, wavefronts etc.
-- Sources of fundamental noise & LIFEsim
-	- Photon noise
-	- Read-out noise
-	- Zodiacal dust
-	- P-pop MC tool
-- Sources of instrumental noise
-	- Explanation how architecture leads to correlated noise
-	- What is unknown for now is 1) the impact of phase and/or amplitude variations as systematic noise sources, and 2) thermal background from the aperture mirrors. 
-	- Studied by Lay
-	- Studied for NOTT
+
+**6. Sources of fundamental noise & LIFEsim**
+- Photon noise
+- Read-out noise
+- Zodiacal dust
+- P-pop MC tool
+
+**7. Sources of instrumental noise**
+- Explanation how architecture leads to correlated noise
+- Study by Lay
+- Statistical framework by Ceau for Kernel-phase detection limits
+- Study for Asgard/NOTT
+
 - Open questions for instrumental noise
 	- Consequence of sub-optimal alignment, error trifecta
 	- Semi-analytical framework for underlying physics of combiner matrix
 	- Standardised language and approach for instrumental errors
+	- To be elaborated...
 
 
 ## Syntax for images, links, code snippets etcetera
