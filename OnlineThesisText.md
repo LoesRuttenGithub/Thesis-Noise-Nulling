@@ -285,16 +285,24 @@ Buffer [150h] rest of March
 Next thesis deadline: mid-June
 
 ## First quick literature review
-- Occurrence of exoplanets as we know so far and main methods 
-- Parallel initiatives to determine exoplanets
-	- TESS, Kepler
-	- RV studies
-	- PLATO
-	- JWST
-	- Ariel
-	- ELT: METIS, PCS, HIRES
-	- HabEx / LUVOIR	
-- LIFE & assets of infrared nulling interferometry
+**Exoplanet science**
+
+Since 1995, the number of detected exoplanets has increased from zero to over 5000. Based on large scale surveys, it is now expected that almost all stars host at least one planet. [reference to be added]. Small planets are more common than gas giants. Earth-sized planets are expected to exist in the habitable zone of approximately 20% of sunlike stars and in 40% of M-dwarfs. In addition to the rocky planets, gas giants and ice giants and their observed orbits in our own solar system, new types of planets were detected named "super-Earths" ($1.5-2 R_E$) and "mini-Neptunes", as well as the presence of 'hot jupiters': gas giants in very close orbits, with super-Earths even being the most common type of planet. The insights have led to improved theories  on the accretion of planets from proto-planetary disks. Moreover, the discovery of 'hot jupiters' let to theories on orbital migration of planets. More detailed and more complete detections of planetary systems are needed to consolidate such theories.
+
+An open question is whether rocky exoplanets in the habitable zone of stars can sustain life. Besides suitable temperatures for water to exist in its liquid form, estimated via the habitable zone which depends on the temperature of the star and the planet's orbit, such planets need an atmosphere, which in theory could be traced by molecules such as CO2 and CH4. Should life as we know it already exist on a planet, then oxygen should be present in the atmosphere, which can be traced through O3. The measurement of the chemical signature and more detailed physics of a planet is referred to as *characterisation*. As planets are very faint compared to their host star, direct characterisation has been very challenging so far and is one of the main aims of upcoming missions.
+
+**Main detection methods for exoplanets**
+
+<img src="https://github.com/LoesRuttenGithub/Thesis-Noise-Nulling/blob/main/Figures/ExoplanetArchive.png" width="1000" height="400">
+
+
+- Transit photometry: Surveys like TESS (Transiting Exoplanet Survey Satellite) and Kepler have detected dips in the intensity of a star due to light blocked by planets while transiting in the line of sight of the star and the observer. The next generation instrument will ESA's PLATO mission (PLAnetary Transits and Oscillations of stars), scheduled for launch in 2026. The next step in studying transits, is to focus on the light of the star as it passes through or blocks the atmosphere of the planet. It is anticipated that the James Webb Space Telescope (JWST) will help to characterise exoplanet atmospheres through  transmission and emission spectroscopy (as well as high-contrast imaging). Moreover, ESA's ARIEL infrared spectroscopy instrument is designed for this.
+- Radial velocity: Planets and the host star orbit around a common centre of mass. The spectrum observed from the host star is therefore slightly Doppler-shifted, forwards and backwards, in a periodic manner. The main past missions were HARPS (High Accuracy Radial Velocity Planet Searcher) HIRES  (High Resolution Echelle Spectrometer), and CORALIE. Missions currently in development with higher precision radial velocity instruments include CARMENES, NIRPS, ESPRESSO, MAROON-X, HARPS3 and EXPRES.
+- Gravitational lensing: This technique benefits from the magnification of light from a far away location due to the gravitational field of a massive object in its line of sight. The main discoveries were by OGLE (Optical Gravitational Lensing Experiment).
+- Direct imaging: Detection of light from the planet itself, either by reflection of the (visible) starlight by the planet's albedo, or by recording the approximately black-body thermal emission from the planet itself. This requires very advanced instruments, such as the Hubble Space Telescope ACS and NICMOS instruments, the VLT's Spectro-Polarimetric High-contrast Exoplanet REsearch (SPHERE) and Keck's Near-Infrared Camera (NIRC2). The upcoming ELT will contain next level direct imaging possibilities through its instruments METIS, PCS and HIRES. NASA has proposed the Habitable Exoplanet Observatory and Large UV/Optical/IR Surveyor LUVOIR missions as *space-based* direct imaging instruments focussing mainly on coronography based techniques to detect visible starlight of sun-like stars reflected from the surfaces of exoplanets. On the other hand, efforts are made among a predominantly Europe-based informal LIFE consortium to include a formation-flying four-aperture infrared nulling-interferometer in the next ESA program. ESA is also exploring the feasibility of more technologically ready alternative space-based nulling interferometer with four apertures mounted at fixed positions on a single spacecraft. A general framework for instrumental noise for a family of architectures of space-based nulling interferometers is the focus of this thesis.
+
+
+Assets of infrared nulling interferometry
 	- Advantages of working in the mid-infrared: More direct constraints on temperature and size of the objects, and spectrum includes molecular absorption lines including biosignatures.
 	- Main design and predicted yield
 - Idea behind nulling interferometry
