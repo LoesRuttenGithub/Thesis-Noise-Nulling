@@ -96,17 +96,22 @@ One approach to construct kernel operator K is to compute the singular value dec
 
 <img src="https://github.com/LoesRuttenGithub/Thesis-Noise-Nulling/blob/main/Figures/MartinacheIreland.png" width="400" height="320">
 
-As a next step, 2D transmission maps of the modified nullers are modelled, which are half the flux of the original 3 classical nullers, and have anti-symmetric properties. In the absence of coupling losses, the 6 modified nullers should combine back to the same transmission as the original 3 nullers. The behaviour of the modified nuller is compared to the original architecture for the layout of the VLTI for a companion with contrast 0.01 at coordinates where the sensitivity of the nuller is near optimal, in the presence of 50 nm residual piston excursions. The theoretical value of the null depth should be a Dirac delta around the dotted lines, but in the presence of the residual piston error, become three plotted skewed distributions. In real life, this distribution would still be convolved with a Gaussian due to background and residual target shot-noise. The middle figure shows six instead of three similarly skewed distributions. The figure on the right shows the kernel outputs $y$, they are symmetric with uncertainties proportional to the cube of the phase errors.  
+As a next step, 2D transmission maps of the modified nullers are modelled, which are half the flux of the original 3 classical nullers, and have anti-symmetric properties. In the absence of coupling losses, the 6 modified nullers should combine back to the same transmission as the original 3 nullers. The behaviour of the modified nuller is compared to the original architecture for the layout of the VLTI for a companion with contrast 0.01 at coordinates where the sensitivity of the nuller is near optimal, in the presence of 50 nm residual piston excursions. The theoretical value of the null depth should be a Dirac delta around the dotted lines, but in the presence of the residual piston error, become three plotted skewed distributions. In real life, this distribution would still be convolved with a Gaussian due to background and residual target shot-noise. The middle figure shows six instead of three similarly skewed distributions. The figure on the right shows the kernel outputs $y$, they are symmetric with uncertainties proportional to the cube of the phase errors. This means that 10% intensity fluctuations on the input translate to errors smaller than 0.001 on the kernel outputs.
 
 <img src="https://github.com/LoesRuttenGithub/Thesis-Noise-Nulling/blob/main/Figures/MartinacheIreland2.png" width="1000" height="270">
 
 The uncertainty is then analysed using a least squares solution. Depending on the configuration, the uncertainty in the best estimate for the contrast c is $\sigma_c=\frac{1}{|m|} \sigma_k$ where the median ratio is 0.8 but goes up to 1000 near the null. 
 
 Four key fundamental sources of uncertainty constitute kernel-uncertainty $\sigma_k$:
-- fringe tracking phase errors, modelled as white power spectrum up to cut-off frequency $\Delta_{\nu_{FT}}^{-1/2}$ 
-- cross-terms between fringe-tracking phase errors and intensity fluctuations on other telescopes, a second order term, depending on the intensity fluctuation of each telescope and capacity of the adaptive optics.  
-- thermal background, scales with power 1/2 of background flux, based on the Bose-Einstein distribution
-- residual target photon noise, scales with power **-**1/2 of the target flux
+- *Fringe tracking phase errors:* modelled as white power spectrum up to cut-off frequency $\Delta_{\nu_{FT}}^{-1/2}$ 
+- *Cross-terms between fringe-tracking phase errors and intensity fluctuations on other telescopes:* a second order term, depending on the intensity fluctuation of each telescope and capacity of the adaptive optics. Their simulation suggests that under realistic (2%) intensity fluctuations, these cross-terms do not affect the performance, as also highlighted by Lay 2004.
+- *Thermal background:* scales with power 1/2 of background flux, based on the Bose-Einstein distribution
+- *Residual target photon noise:* scales with power -1/2 of the target flux
+
+Assuming non-ideal but good observing conditions, the design is robust against residual wavefront aberrations and photometric fluctuations, with errors dominated by third order input phase and intensity errors.
+
+When applying the analysis to the VIKiNG survey, it is calculated that contrasts of $10^{-5}$ can be achieved for targets brighter than $M_L=6$, reaching SNR=5 within two hours observing time, which means that a dozen nearby planets could be discovered.
+
 
 </details>
 
@@ -131,6 +136,8 @@ Written before discovery of exoplanets. Bracewell emphasises potential of infrar
 
 <details>
 <summary> Dannert et al. 2022: LIFE paper 2: Signal simulation, extraction and exoplanet parameters from single epoch observations </summary>
+To be added!
+
 </details>
 
 <details>
@@ -154,10 +161,14 @@ The double bracewell outperforms a configuration with diamond as described by An
 
 <details>
 <summary> Laugier et al. 2020: Kernel nullers for an arbitrary number of apertures </summary>
+To be added!
+
 </details>
 
 <details>
 <summary> Flasseur et al. 2024: Shrinkage MMSE estimators of covariances beyond the zero-mean and stationary variance assumptions </summary>
+To be added!
+
 </details>
 
 
