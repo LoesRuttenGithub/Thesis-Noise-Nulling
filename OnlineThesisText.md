@@ -4,16 +4,16 @@
 Here I will update my work on my thesis as we go. It is intended to be structured but not as formal as the final text. To be discussed: Which content can be in a public folder.
 
 ## Table of contents
-[Literature list](#Literature-list)
+[Literature_List](#Literature_List)
 
 [Meetings](#Meetings)
 
 [Planning](#Planning)
 
-[First quick literature review](#Quick-review)
+[Quick_Summary](#Quick_Summary)
 
 
-## <a name="Literature-list"></a> Literature list 
+## Literature_List
 <details>
 <summary> Quantz et al. 2022: LIFE Paper 1: Improved exoplanet detection yield estimates </summary>
 
@@ -286,7 +286,7 @@ Buffer [150h] rest of March
 Next thesis deadline: mid-June
 
 
-## <a name="Quick-review"></a> First quick literature review
+## Quick_Summary
 
 **1. Exoplanet science**
 
