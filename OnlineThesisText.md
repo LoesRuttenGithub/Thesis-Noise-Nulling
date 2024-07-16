@@ -96,11 +96,17 @@ One approach to construct kernel operator K is to compute the singular value dec
 
 <img src="https://github.com/LoesRuttenGithub/Thesis-Noise-Nulling/blob/main/Figures/MartinacheIreland.png" width="400" height="320">
 
-As a next step, 2D transmission maps of the modified nullers are modelled, which are half the flux of the original 3 classical nullers, and have anti-symmetric properties. In the absence of coupling losses, the 6 modified nullers should combine back to the same transmission as the original 3 nullers. The behaviour of the modified nuller is compared to the original architecture for the layout of the VLTI for a companion with contrast -.-1 at coordinates where the sensitivity of the nuller is near optimas, in the presence of 50 nm residual piston excursions. The theoretical value of the null depth should be a dirac delta around the dotted lines, but in the presence of the residual piston error, become three plotted skewed distributions. In real life, this distribution would still be convolved with a Gaussian due to background and residual target shot-noise. The middle figure shows six instead of three similarly skewed distributions. The figure on the right shows the kernel outputs $y$, they are symmetric with uncertainties proportional to the cube of the phase errors. 
+As a next step, 2D transmission maps of the modified nullers are modelled, which are half the flux of the original 3 classical nullers, and have anti-symmetric properties. In the absence of coupling losses, the 6 modified nullers should combine back to the same transmission as the original 3 nullers. The behaviour of the modified nuller is compared to the original architecture for the layout of the VLTI for a companion with contrast 0.01 at coordinates where the sensitivity of the nuller is near optimal, in the presence of 50 nm residual piston excursions. The theoretical value of the null depth should be a Dirac delta around the dotted lines, but in the presence of the residual piston error, become three plotted skewed distributions. In real life, this distribution would still be convolved with a Gaussian due to background and residual target shot-noise. The middle figure shows six instead of three similarly skewed distributions. The figure on the right shows the kernel outputs $y$, they are symmetric with uncertainties proportional to the cube of the phase errors.  
 
 <img src="https://github.com/LoesRuttenGithub/Thesis-Noise-Nulling/blob/main/Figures/MartinacheIreland2.png" width="1000" height="270">
 
+The uncertainty is then analysed using a least squares solution. Depending on the configuration, the uncertainty in the best estimate for the contrast c is $\sigma_c=\frac{1}{|m|} \sigma_k$ where the median ratio is 0.8 but goes up to 1000 near the null. 
 
+Four key fundamental sources of uncertainty constitute kernel-uncertainty $\sigma_k$:
+- fringe tracking phase errors, modelled as white power spectrum up to cut-off frequency $\Delta_{\nu_{FT}}^{-1/2}$ 
+- cross-terms between fringe-tracking phase errors and intensity fluctuations on other telescopes, a second order term, depending on the intensity fluctuation of each telescope and capacity of the adaptive optics.  
+- thermal background, scales with power 1/2 of background flux, based on the Bose-Einstein distribution
+- residual target photon noise, scales with power **-**1/2 of the target flux
 
 </details>
 
