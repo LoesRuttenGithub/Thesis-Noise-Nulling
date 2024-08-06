@@ -165,6 +165,16 @@ $ U = \frac{1}{\sqrt{4}} \left( \begin{array}
 1 & -1 & e^{i \pi /2} &-e^{i \pi /2}\\
 \end{array} \right)$
 
+$
+U = \frac{1}{\sqrt{4}} \left( \begin{array}{cccc} 
+0 & 0 & \sqrt{2} & \sqrt{2} \\ 
+\sqrt{2} & \sqrt{2} & 0 & 0 \\ 
+1 & -1 & -e^{i \pi /2} & e^{i \pi /2} \\ 
+1 & -1 & e^{i \pi /2} & -e^{i \pi /2} \\ 
+\end{array} \right) 
+$ 
+
+
 The top two rows of the matrix denote the combination of the apertures constructively into two single Bracewell combiners without phase delays. The bottom two rows represent the 1&2 and 3&4 undergoing an $e^{i \pi}$ phase difference (=\times -1), making their interference destructive. With the goal of phase chopping, one of the destructive outputs receives an additional phase shift of $\pi / 2$  which reduces the susceptibility to instrumental noise effects. 
 
 One can then construct 2D transmission maps $T_m$ relating the signal from sky position ($\alpha,\beta$) collected by the k apertures to the output m. The paper includes an analytical example (some questions about this). The transmission map shows the sensitivity of the instrument to incoming photons from different locations, with zero sensitivity in the center of the transmission map. Output 3 and 4 can be subtracted from one another to create a differential transmission map $T_dif$. The symmetry of this map means that any point symmetric source will not be transmitted to this differential map, although its statistical shot noise will be. The analytical expression for the transmission map can be used to illustrate how the light from different sources modulates as a function of rotation angle of this transmission map: an off-axis source modulates as it 'moves' over positive and negative fringes, while a spherically symmetric source gives a constant contribution independent of angle, which can be subtracted from the signal. The sensitivity of the transmission map can be summarised via the modulation efficiency $\xi$, which is the root-mean-square of the differential map over a full rotation of $\phi$. The angular distance from the center $\theta$ where the transmission map is most sensitive ($\theta_{\xi_{max}}$) depends on both baseline and wavelength via $\theta_{\xi_{max}}=0.59 \frac{\lambda}{b}$. 
