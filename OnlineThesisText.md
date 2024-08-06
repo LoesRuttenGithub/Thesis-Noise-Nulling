@@ -178,16 +178,9 @@ $\begin{pmatrix}
 1 & -1 & e^{i \pi /2} & -e^{i \pi /2} \\ 
 \end{pmatrix} $
 
-
-
-$
-\begin{pmatrix}
-  1       & x^1_0   & x^2_0   & \cdots  & x^{degree}_0  \\
-  1       & x^1_1   & x^2_1   & \cdots  & x^{degree}_1  \\
-  \vdots  & \vdots  & \vdots  & \ddots  & \vdots \\
-  1       & x^1_n   & x^2_n   & \cdots  & x^{degree}_n  \\
-\end{pmatrix}
-$
+```math
+\begin{bmatrix}X\\Y\end{bmatrix}
+```
 
 The top two rows of the matrix denote the combination of the apertures constructively into two single Bracewell combiners without phase delays. The bottom two rows represent the 1&2 and 3&4 undergoing an $e^{i \pi}$ phase difference (=\times -1), making their interference destructive. With the goal of phase chopping, one of the destructive outputs receives an additional phase shift of $\pi / 2$  which reduces the susceptibility to instrumental noise effects. 
 
@@ -215,7 +208,7 @@ An further analysis based on experiments could inform a more detailed model of t
    
 Although the 'signal' part of symmetrical sources can be filtered using incoherent combination, the noise part remains and contributes to the statistical noise. The ratio of the signal of the planet over the total noise at a specific wavelengths bin, at output 3 or 4, is then 
 
-$SNR_\lambda = \frac{ \int \sqrt{< S_{p}^2( \lambda ) > } d \lambda }{ \sqrt{ 2 \int \left( S_{sym,3}(\lambda) + \sqrt{< S_{p,3}^2(\lambda)> \right) } d \lambda}} $
+$SNR_\lambda = \frac{ \int \sqrt{ \< S_{p}^2( \lambda ) \> } d \lambda }{ \sqrt{ 2 \int \left( S_{sym,3}(\lambda) + \sqrt{\< S_{p,3}^2(\lambda) \> \right) } d \lambda} } $
 
 The total SNR assuming uncorrelated noise between the bins, is then the square-root of the sum of squares of the SNR of each wavelength bin, which scales with the square-root of the integration time, area and detection 
 
