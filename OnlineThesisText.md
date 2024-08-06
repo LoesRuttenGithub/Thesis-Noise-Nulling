@@ -137,7 +137,25 @@ Written before discovery of exoplanets. Bracewell emphasises potential of infrar
 
 <details>
 <summary> Dannert et al. 2022: LIFE paper 2: Signal simulation, extraction and exoplanet parameters from single epoch observations </summary>
-To be added!
+
+This paper presents LIFEsim, a tool to simulate observations for the Large Interferometer For Exoplanets, with the aim to quantify the mission's science potential. This version includes fundamental noise, and has the option to include instrumental noise in the future. From the fundamental noise levels, already some limits can be placed on the permitted instrumental noise terms. Based on the current version of LIFEsim applied on a Monte-Carlo simulation of a mock survey, the signal to noise ratio of the spectra is dominated by photon noise.
+
+
+Many of the existing and upcoming missions targeted at characterising exoplanet atmospheres are based on transiting exoplanets (e.g. occultation spectroscopy) but this limits the characterization space to close-in and large planets. Direct detection missions in the optical and infrared regimes would allow for a much larger number of detections omitting this bias.
+
+
+LIFEsim is based on nulling interferometry using a double Bracewell setup. 
+
+**Single Bracewell**
+The main idea can be illustrated by a single Bracewell: two collector apertures separated by baseline b can be combined to produce a sinusoidal fringe pattern. If the beams are offset by a $\pi$ phase difference, all on-axis light is cancelled, which in the context of exoplanets detection allows to cancel the light of the host star while keeping the light emitted by the off-axis exoplanets. The spatial resolution of an interferometer with a large baseline b is fundamentally better than that of a single aperture telescope of size D, with $\lambda/2b$ compared to $\lambda/D$. Coverage of the uv-plane is maximised by rotating the array, so that the exoplanet signal modulates as a function of angle as it 'moves' over the fringes in the transmission map. Repeating this observation at different wavelengths gives another type of extra information. A single Bracewell has some limitations: the transmission pattern is symmetric, so there is an ambiguity of 180$^\circ$ to the position angle of the exoplanet. Moreover, it has a steep central minimum ('null'), which makes it sensitive to leakage from star light as soon as the star becomes a resolved disk.
+
+**X-array architecture**
+The LIFE mission proposes an X-array architecture with a dual chopped Bracewell combiner, where a 6:1 baseline has been found to best suited for post-processing techniques to remove instrumental 'instability noise'. A fifth spacecraft would collect and combine the beams. 
+
+
+Mathematically, a the signal of the interferometer can be described via an input amplitude vector V representing the signal collected by each aperture: $V_k=r_k e^{i 2 \pi x_k \alpha + y_k \beta / \lambda}$. The architecture of the combination of beams by the interferometer can be described by matrix U so that the output amplitude vector is $W=UV$. For a dual chopped Bracewell combiner, the matrix U is
+
+$$ U = \frac{1}{\sqrt{4}}$$
 
 </details>
 
