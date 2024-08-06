@@ -138,10 +138,10 @@ Written before discovery of exoplanets. Bracewell emphasises potential of infrar
 <details>
 <summary> Dannert et al. 2022: LIFE paper 2: Signal simulation, extraction and exoplanet parameters from single epoch observations </summary>
 
-This paper presents LIFEsim, a tool to simulate observations for the Large Interferometer For Exoplanets, with the aim to quantify the mission's science potential. This version includes fundamental noise, and has the option to include instrumental noise in the future. From the fundamental noise levels, already some limits can be placed on the permitted instrumental noise terms. Based on the current version of LIFEsim applied on a Monte-Carlo simulation of a mock survey, the signal to noise ratio of the spectra is dominated by photon noise.
+This paper presents LIFEsim, a tool to simulate observations for the Large Interferometer For Exoplanets, with the aim to quantify the mission's science potential. This version of LIFEsim includes fundamental noise, and has the option to include instrumental noise in the future. From the fundamental noise levels, already some limits can be placed on the permitted instrumental noise terms. Based on the current version of LIFEsim applied on a Monte-Carlo simulation of a mock survey, the signal to noise ratio of the spectra is dominated by photon noise.
 
 
-Many of the existing and upcoming missions targeted at characterising exoplanet atmospheres are based on transiting exoplanets (e.g. occultation spectroscopy) but this limits the characterization space to close-in and large planets. Direct detection missions in the optical and infrared regimes would allow for a much larger number of detections omitting this bias.
+Many of the existing and upcoming missions targeted at characterising exoplanet atmospheres are based on transiting exoplanets (e.g. occultation spectroscopy) but this limits the characterization space to close-in and large planets. Direct detection missions in the optical and infrared regimes would allow for a much larger number of detections omitting this bias. The idea of the life mission consists of a detection phase followed by a more detailed characterisation phase for objects of interest. This paper focusses on the first observation phase. Although detection is the main goal of this phase, it is also crucial to measure the radius, effective temperature and separation from the host in order to prioritise objects for the following phase.
 
 
 
@@ -166,14 +166,17 @@ $ U = \frac{1}{\sqrt{4}} \left( \begin{array}
 \end{array} \right)$
 
 $
-U = \frac{1}{\sqrt{4}} \left( \begin{array}{cccc} 
+U = \frac{1}{\sqrt{4}}$
+
+$ \left( \right) 
+$ 
+
+$\begin{array}{cccc} 
 0 & 0 & \sqrt{2} & \sqrt{2} \\ 
 \sqrt{2} & \sqrt{2} & 0 & 0 \\ 
 1 & -1 & -e^{i \pi /2} & e^{i \pi /2} \\ 
 1 & -1 & e^{i \pi /2} & -e^{i \pi /2} \\ 
-\end{array} \right) 
-$ 
-
+\end{array} $
 
 The top two rows of the matrix denote the combination of the apertures constructively into two single Bracewell combiners without phase delays. The bottom two rows represent the 1&2 and 3&4 undergoing an $e^{i \pi}$ phase difference (=\times -1), making their interference destructive. With the goal of phase chopping, one of the destructive outputs receives an additional phase shift of $\pi / 2$  which reduces the susceptibility to instrumental noise effects. 
 
@@ -184,9 +187,49 @@ One can then construct 2D transmission maps $T_m$ relating the signal from sky p
 - True signal of the planet, modelled as black body radiation
 - Geometric stellar leakage: not all stellar flux is suppressed when the angular extent of the disk of the star is wider than the 'null' of the interferometer
 - Local zodiacal dust: Dust inside our own solar system adds radiation background via scattering of visible sunlight (not relevant for a MIR instrument) and thermal emission. Earlier work on DarwinSIM included a model of spectral surface brightness. Local zodiacal light is *diffuse* ([?] which means it comes from different directions, with different phases and wavelengths?), so it cannot be brought to destructive interference. The most effective way of minimizing this contribution is by observing away from local dust.
-- Exozodiacal dust: Generally modelled as optically thin, symmetric with a power law surface density (or homogeneous? p6). The temperature of the dust depends on distance from the central star. Most of the radiation originates from the (hottest) central region. High-luminosity stars are expected to have larger disks. Larger disks have larger surface areas, thus larger fluxes. A symmetric disk can be filtered out, but its light does contribute to shot noise. 
+- Exozodiacal dust: Generally modelled as optically thin, symmetric with a power law surface density (or homogeneous? p6). The temperature of the dust depends on distance from the central star. Most of the radiation originates from the (hottest) central region. High-luminosity stars are expected to have larger disks. Larger disks have larger surface areas, thus larger fluxes. A symmetric disk can be filtered out, but its light does contribute to shot noise.
+- Instrumental noise 
+	- Instrumental noise terms exists of intensity variations A and optical path difference errors (related to the phase response $\phi$), and uncertainties in polarizaion rotation $\theta$ and space craft positions $x$ and $y$, which introduce additional stellar leakages and instability noise. These terms are systematic perturbations which can resemble a signal. 
+	- In addition, detector dark current $I_D$ and thermal background noise deteriorate the measurement via photon noise. The total instrumental noise is $\sigma_{inst}=\sqrt{\sigma^2_{s,inst} + \sigma^2_{p,inst}}, and the *fundamental noise limited case* is defined the regime where astrophysical noise is larger than instrumental noise.
+	- The errors on the interferometric response, taht is detected photon rate $N$, can be found from the sum of responses of te individual baselines. The sensitivity of photon rate N to perturbations in amplitude and phase can be written as a 2nd order taylor expansion containing 2nd order terms and amplitude-phase cross-terms. Assuming a symmetric noise source, the asymmetric part can be set to zero so the remaining photon rate is $N*=\sum_j \sum_k Aj Ak cos(\phi_j - \phi_k)B_{*,jk}$. The first-order amplitude and phase perturbation can be derived from that, followed by second-order terms and cross terms, which together formulate an expression for the simplified Taylor series that constitutes $\delta N$. The photon noise of the instrument is then $\sigma_p = \sqrt{N+<\delta N>}. 
+	- *Something about phase chopping: Up to second order, the method of phase-chopping is able to remove all systematic noise contributions except for one first order phase $\delta \phi_n$ and one amplitude-phase corss term $\delta a_n \delta \phi_m$.*
+
+Comparison of the fundamental noise sources and instrumental noise, the short wavelength section is dominated by astronomical noise from the host star, the low wavelength section is dominated by local zodiacal dust. Systematic noise is the largest at shorter wavelengths, which becomes relevant when considering that the fundamental noise limit must hold for all wavelength bins. Regarding photon noise sources, both contributions are modelled as constant, where the requirements on the dark current seem to be one order of magnitude more stringent than what has been achieved so far.
+
+For a closer distance to the target or hotter stars, the phase error requirement becomes stricter while the amplitude error can be less strict. An analysis of these effects for different types of stars is needed to investigate systematic biases.
+
+An further analysis based on experiments could inform a more detailed model of the shape of the perturbation spectra with a component level breakdown. Current experiments are able to achieve the necessary amplitude error constraint but the OPD error is one order of magnitude larger than required. 
+
+**SNR calculations**
    
-Although the main contribution of symmetrical sources can be filtered using incoherent combination, their noise is incoherent
+Although the 'signal' part of symmetrical sources can be filtered using incoherent combination, the noise part remains and contributes to the statistical noise. The ratio of the signal of the planet over the total noise at a specific wavelengths bin, at output 3 or 4, is then 
+
+$SNR_\lambda = \frac{ \int \sqrt{<S_p^2(\lambda)>} d\lambda}{\sqrt{2 \int (S_{sym,3}(\lambda) + \sqrt{<S^2_{p,3}(\lambda)>}d\lambda}$
+
+The total SNR assuming uncorrelated noise between the bins, is then the square-root of the sum of squares of the SNR of each wavelength bin, which scales with the square-root of the integration time, area and detection 
+
+efficiency. Something with numerical discretisation errors? (p.6).
+
+The SNR is baseline-dependent and can be optimised, although there is a trade-off between the amount of received planetary signal and the amount of stellar leakage. A baseline must be chosen such that the SNR is sufficient for all wavelengths of interest. A case study show that the decrease in planet signal at wavelengths shorter than 8 um with increasing shot noise causes a drop in SNR at short wavelengths. 
+
+
+
+**Signal extraction**
+The physical characteristics of the planet are extracted from the data using a maximum-likelihood method for single planets and for multi planet systems, starting with the most likely planet position $\hat{\theta}_p$ within the domain of positive fluxes. The robustness of this method is investigated using a Monte Carlo simulation. The noise is assumed to be spectrally independent normal noise whose variance can be estimated from the data. Priors can be introduced. The SNR at the position of the planet is the flux over its standard deviation $SNR_\lambda(\theta_p)=SNR[\hat{F}_p(\theta,\lambda)]=\frac{\hat{F}_p(\theta,\lambda)}{\sigma(\hat{F}_p(\theta,\lambda)}. It is proposed that the combined cost functions of different wavelengths p(J') follow a chi-squared distribution with as many degrees of freedom as the number of wavelength bins. This is simulated and confirmed. 
+
+Based on a chi-squared distribution, one can define the probability of a false alarm for a 5 sigma confidence level, which leads to a detection threshold of $\eta=87$.  It is better to use p(J_\lambda'') which has one degree of freedom. This can then be combined for all wavelength bins. This leads to a detection threshold of $\eta=65$.
+
+**Signal analysis**
+The signal extraction method is applied to an Earth twin at 100 mas and a predicted SNR of 9.7 is found. The model is run many times to obtain representative average and standard deviation: 99.7 $\pm$ 1.5 mas and always a correct azimuthal position. The measurements of the individual wavelength bins lead to a spectrum with correct measurements but with relatively large 
+uncertainty bars, especially for low wavelengths. The experiment is repeated for multi-planet systems, where the brightest planet is found first, subtracted from the signal, and the next one is found after. From the spectral shape, the temperature and radius are derived, with more uncertainty in the radius than in the temperature, with the best precision for the innermost (brightest) planet. It is possible to develop a maximum likelihood method to estimate the multiple planet positions simultaneously, which reduces error propagation. 
+
+When applied to a simulation of nearby exoplanets, 98% of the planets were detected with separations within 15% accuracy and angles within 10 $deg. Better SNR means better estimation of the parameters. Temperature and radius estimates are (anti)correlated. 
+
+Machine learning based signal extraction algorithms still need to be tested. 
+
+
+
+
 </details>
 
 <details>
