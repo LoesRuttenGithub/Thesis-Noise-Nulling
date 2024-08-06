@@ -178,6 +178,17 @@ $\begin{pmatrix}
 1 & -1 & e^{i \pi /2} & -e^{i \pi /2} \\ 
 \end{pmatrix} $
 
+
+
+$
+\begin{pmatrix}
+  1       & x^1_0   & x^2_0   & \cdots  & x^{degree}_0  \\
+  1       & x^1_1   & x^2_1   & \cdots  & x^{degree}_1  \\
+  \vdots  & \vdots  & \vdots  & \ddots  & \vdots \\
+  1       & x^1_n   & x^2_n   & \cdots  & x^{degree}_n  \\
+\end{pmatrix}
+$
+
 The top two rows of the matrix denote the combination of the apertures constructively into two single Bracewell combiners without phase delays. The bottom two rows represent the 1&2 and 3&4 undergoing an $e^{i \pi}$ phase difference (=\times -1), making their interference destructive. With the goal of phase chopping, one of the destructive outputs receives an additional phase shift of $\pi / 2$  which reduces the susceptibility to instrumental noise effects. 
 
 One can then construct 2D transmission maps $T_m$ relating the signal from sky position ($\alpha,\beta$) collected by the k apertures to the output m. The paper includes an analytical example (some questions about this). The transmission map shows the sensitivity of the instrument to incoming photons from different locations, with zero sensitivity in the center of the transmission map. Output 3 and 4 can be subtracted from one another to create a differential transmission map $T_dif$. The symmetry of this map means that any point symmetric source will not be transmitted to this differential map, although its statistical shot noise will be. The analytical expression for the transmission map can be used to illustrate how the light from different sources modulates as a function of rotation angle of this transmission map: an off-axis source modulates as it 'moves' over positive and negative fringes, while a spherically symmetric source gives a constant contribution independent of angle, which can be subtracted from the signal. The sensitivity of the transmission map can be summarised via the modulation efficiency $\xi$, which is the root-mean-square of the differential map over a full rotation of $\phi$. The angular distance from the center $\theta$ where the transmission map is most sensitive ($\theta_{\xi_{max}}$) depends on both baseline and wavelength via $\theta_{\xi_{max}}=0.59 \frac{\lambda}{b}$. 
@@ -204,7 +215,7 @@ An further analysis based on experiments could inform a more detailed model of t
    
 Although the 'signal' part of symmetrical sources can be filtered using incoherent combination, the noise part remains and contributes to the statistical noise. The ratio of the signal of the planet over the total noise at a specific wavelengths bin, at output 3 or 4, is then 
 
-$SNR_\lambda = \frac{ \int \sqrt{< S_{p}^2( \lambda ) > } d \lambda }{ \sqrt{ 2 \int (S_{sym,3}(\lambda) + \sqrt{< S_{p,3}^2(\lambda)>} d \lambda}} $
+$SNR_\lambda = \frac{ \int \sqrt{< S_{p}^2( \lambda ) > } d \lambda }{ \sqrt{ 2 \int \left( S_{sym,3}(\lambda) + \sqrt{< S_{p,3}^2(\lambda)> \right) } d \lambda}} $
 
 The total SNR assuming uncorrelated noise between the bins, is then the square-root of the sum of squares of the SNR of each wavelength bin, which scales with the square-root of the integration time, area and detection 
 
@@ -215,7 +226,7 @@ The SNR is baseline-dependent and can be optimised, although there is a trade-of
 
 
 **Signal extraction**
-The physical characteristics of the planet are extracted from the data using a maximum-likelihood method for single planets and for multi planet systems, starting with the most likely planet position $ \hat \theta_{p} $ within the domain of positive fluxes. The robustness of this method is investigated using a Monte Carlo simulation. The noise is assumed to be spectrally independent normal noise whose variance can be estimated from the data. Priors can be introduced. The SNR at the position of the planet is the flux over its standard deviation $SNR_\lambda(\theta_{p})=$,$SNR[\hat F_{p} (\theta,\lambda)]=$ , $\frac{\hat{F}_p(\theta,\lambda)}{\sigma(\hat{F}_p(\theta,\lambda)}$. It is proposed that the combined cost functions of different wavelengths p(J') follow a chi-squared distribution with as many degrees of freedom as the number of wavelength bins. This is simulated and confirmed. 
+The physical characteristics of the planet are extracted from the data using a maximum-likelihood method for single planets and for multi planet systems, starting with the most likely planet position $ \hat \theta_{p} $ within the domain of positive fluxes. The robustness of this method is investigated using a Monte Carlo simulation. The noise is assumed to be spectrally independent normal noise whose variance can be estimated from the data. Priors can be introduced. The SNR at the position of the planet is the flux over its standard deviation $SNR_\lambda(\theta_{p})=$,$SNR \left[ \hat F_{p} ( \theta , \lambda ) \right]=$ , $\frac{\hat F_{p} (\theta,\lambda)}{\sigma(\hat{F}_p(\theta,\lambda)}$. It is proposed that the combined cost functions of different wavelengths p(J') follow a chi-squared distribution with as many degrees of freedom as the number of wavelength bins. This is simulated and confirmed. 
 
 Based on a chi-squared distribution, one can define the probability of a false alarm for a 5 sigma confidence level, which leads to a detection threshold of $\eta=87$.  It is better to use $p(J_\lambda'')$ which has one degree of freedom. This can then be combined for all wavelength bins. This leads to a detection threshold of $\eta=65$.
 
