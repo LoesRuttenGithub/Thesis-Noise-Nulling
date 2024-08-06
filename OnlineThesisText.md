@@ -158,12 +158,12 @@ The LIFE mission proposes an X-array architecture with a dual chopped Bracewell 
 Mathematically, a the signal of the interferometer can be described via an input amplitude vector V representing the signal collected by each aperture: $V_k=r_k e^{i 2 \pi (x_k \alpha + y_k \beta) / \lambda}$. The architecture of the combination of beams by the interferometer can be described by matrix U so that the output amplitude vector is $W=UV$. For a dual chopped Bracewell combiner, the matrix U is
 
 
-$ U = \frac{1}{\sqrt{4}} \left(\begin{array}
+$ U = \frac{1}{\sqrt{4}} \left( \begin{array}
 0 & 0 & \sqrt{2} & \sqrt{2}\\
 \sqrt{2} & \sqrt{2} & 0 & 0 \\
 1 & -1 & -e^{i \pi /2} &e^{i \pi /2}\\
 1 & -1 & e^{i \pi /2} &-e^{i \pi /2}\\
-\end{array}\right\)
+\end{array} \right)$
 
 The top two rows of the matrix denote the combination of the apertures constructively into two single Bracewell combiners without phase delays. The bottom two rows represent the 1&2 and 3&4 undergoing an $e^{i \pi}$ phase difference (=\times -1), making their interference destructive. With the goal of phase chopping, one of the destructive outputs receives an additional phase shift of $\pi / 2$  which reduces the susceptibility to instrumental noise effects. 
 
