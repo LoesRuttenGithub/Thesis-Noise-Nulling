@@ -144,19 +144,39 @@ This paper presents LIFEsim, a tool to simulate observations for the Large Inter
 Many of the existing and upcoming missions targeted at characterising exoplanet atmospheres are based on transiting exoplanets (e.g. occultation spectroscopy) but this limits the characterization space to close-in and large planets. Direct detection missions in the optical and infrared regimes would allow for a much larger number of detections omitting this bias.
 
 
-LIFEsim is based on nulling interferometry using a double Bracewell setup. 
 
-**Single Bracewell**
-The main idea can be illustrated by a single Bracewell: two collector apertures separated by baseline b can be combined to produce a sinusoidal fringe pattern. If the beams are offset by a $\pi$ phase difference, all on-axis light is cancelled, which in the context of exoplanets detection allows to cancel the light of the host star while keeping the light emitted by the off-axis exoplanets. The spatial resolution of an interferometer with a large baseline b is fundamentally better than that of a single aperture telescope of size D, with $\lambda/2b$ compared to $\lambda/D$. Coverage of the uv-plane is maximised by rotating the array, so that the exoplanet signal modulates as a function of angle as it 'moves' over the fringes in the transmission map. Repeating this observation at different wavelengths gives another type of extra information. A single Bracewell has some limitations: the transmission pattern is symmetric, so there is an ambiguity of 180$^\circ$ to the position angle of the exoplanet. Moreover, it has a steep central minimum ('null'), which makes it sensitive to leakage from star light as soon as the star becomes a resolved disk.
+**Concept of Nulling Interferometry**
+
+LIFEsim is based on nulling interferometry using a double Bracewell setup. 
+First, the paper illustrates the main idea via a single Bracewell: two collector apertures separated by baseline b can be combined to produce a sinusoidal fringe pattern. If the beams are offset by a $\pi$ phase difference, all on-axis light is cancelled, which in the context of exoplanets detection allows to cancel the light of the host star while keeping the light emitted by the off-axis exoplanets. The spatial resolution of an interferometer with a large baseline b is fundamentally better than that of a single aperture telescope of size D, with $\lambda/2b$ compared to $\lambda/D$. Coverage of the uv-plane is maximised by rotating the array, so that the exoplanet signal modulates as a function of angle as it 'moves' over the fringes in the transmission map. Repeating this observation at different wavelengths gives another type of extra information. A single Bracewell has some limitations: the transmission pattern is symmetric, so there is an ambiguity of 180 &deg to the position angle of the exoplanet. Moreover, it has a steep central minimum ('null'), which makes it sensitive to leakage from star light as soon as the star becomes a resolved disk.
 
 **X-array architecture**
+
 The LIFE mission proposes an X-array architecture with a dual chopped Bracewell combiner, where a 6:1 baseline has been found to best suited for post-processing techniques to remove instrumental 'instability noise'. A fifth spacecraft would collect and combine the beams. 
 
 
-Mathematically, a the signal of the interferometer can be described via an input amplitude vector V representing the signal collected by each aperture: $V_k=r_k e^{i 2 \pi x_k \alpha + y_k \beta / \lambda}$. The architecture of the combination of beams by the interferometer can be described by matrix U so that the output amplitude vector is $W=UV$. For a dual chopped Bracewell combiner, the matrix U is
+Mathematically, a the signal of the interferometer can be described via an input amplitude vector V representing the signal collected by each aperture: $V_k=r_k e^{i 2 \pi (x_k \alpha + y_k \beta) / \lambda}$. The architecture of the combination of beams by the interferometer can be described by matrix U so that the output amplitude vector is $W=UV$. For a dual chopped Bracewell combiner, the matrix U is
 
-$$ U = \frac{1}{\sqrt{4}}$$
 
+$ U = \frac{1}{\sqrt{4}} \left(\begin{array}
+0 & 0 & \sqrt{2} & \sqrt{2}\\
+\sqrt{2} & \sqrt{2} & 0 & 0 \\
+1 & -1 & -e^{i \pi /2} &e^{i \pi /2}\\
+1 & -1 & e^{i \pi /2} &-e^{i \pi /2}\\
+\end{array}\right\)
+
+The top two rows of the matrix denote the combination of the apertures constructively into two single Bracewell combiners without phase delays. The bottom two rows represent the 1&2 and 3&4 undergoing an $e^{i \pi}$ phase difference (=\times -1), making their interference destructive. With the goal of phase chopping, one of the destructive outputs receives an additional phase shift of $\pi / 2$  which reduces the susceptibility to instrumental noise effects. 
+
+One can then construct 2D transmission maps $T_m$ relating the signal from sky position ($\alpha,\beta$) collected by the k apertures to the output m. The paper includes an analytical example (some questions about this). The transmission map shows the sensitivity of the instrument to incoming photons from different locations, with zero sensitivity in the center of the transmission map. Output 3 and 4 can be subtracted from one another to create a differential transmission map $T_dif$. The symmetry of this map means that any point symmetric source will not be transmitted to this differential map, although its statistical shot noise will be. The analytical expression for the transmission map can be used to illustrate how the light from different sources modulates as a function of rotation angle of this transmission map: an off-axis source modulates as it 'moves' over positive and negative fringes, while a spherically symmetric source gives a constant contribution independent of angle, which can be subtracted from the signal. The sensitivity of the transmission map can be summarised via the modulation efficiency $\xi$, which is the root-mean-square of the differential map over a full rotation of $\phi$. The angular distance from the center $\theta$ where the transmission map is most sensitive ($\theta_{\xi_{max}}$) depends on both baseline and wavelength via $\theta_{\xi_{max}}=0.59 \frac{\lambda}{b}$. 
+
+**Astrophysical sources**
+- True signal of the star, modelled as black body radiation, neglecting limb darkening i.e. assuming constant brightness across the disk
+- True signal of the planet, modelled as black body radiation
+- Geometric stellar leakage: not all stellar flux is suppressed when the angular extent of the disk of the star is wider than the 'null' of the interferometer
+- Local zodiacal dust: Dust inside our own solar system adds radiation background via scattering of visible sunlight (not relevant for a MIR instrument) and thermal emission. Earlier work on DarwinSIM included a model of spectral surface brightness. Local zodiacal light is *diffuse* ([?] which means it comes from different directions, with different phases and wavelengths?), so it cannot be brought to destructive interference. The most effective way of minimizing this contribution is by observing away from local dust.
+- Exozodiacal dust: Generally modelled as optically thin, symmetric with a power law surface density (or homogeneous? p6). The temperature of the dust depends on distance from the central star. Most of the radiation originates from the (hottest) central region. High-luminosity stars are expected to have larger disks. Larger disks have larger surface areas, thus larger fluxes. A symmetric disk can be filtered out, but its light does contribute to shot noise. 
+   
+Although the main contribution of symmetrical sources can be filtered using incoherent combination, their noise is incoherent
 </details>
 
 <details>
