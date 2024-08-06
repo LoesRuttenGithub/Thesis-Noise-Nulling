@@ -171,12 +171,12 @@ U = \frac{1}{\sqrt{4}}$
 $ \left( \right) 
 $ 
 
-$\begin{array}{cccc} 
+$\begin{pmatrix}
 0 & 0 & \sqrt{2} & \sqrt{2} \\ 
 \sqrt{2} & \sqrt{2} & 0 & 0 \\ 
 1 & -1 & -e^{i \pi /2} & e^{i \pi /2} \\ 
 1 & -1 & e^{i \pi /2} & -e^{i \pi /2} \\ 
-\end{array} $
+\end{pmatrix} $
 
 The top two rows of the matrix denote the combination of the apertures constructively into two single Bracewell combiners without phase delays. The bottom two rows represent the 1&2 and 3&4 undergoing an $e^{i \pi}$ phase difference (=\times -1), making their interference destructive. With the goal of phase chopping, one of the destructive outputs receives an additional phase shift of $\pi / 2$  which reduces the susceptibility to instrumental noise effects. 
 
@@ -215,7 +215,7 @@ The SNR is baseline-dependent and can be optimised, although there is a trade-of
 
 
 **Signal extraction**
-The physical characteristics of the planet are extracted from the data using a maximum-likelihood method for single planets and for multi planet systems, starting with the most likely planet position $ \hat \theta_p $ within the domain of positive fluxes. The robustness of this method is investigated using a Monte Carlo simulation. The noise is assumed to be spectrally independent normal noise whose variance can be estimated from the data. Priors can be introduced. The SNR at the position of the planet is the flux over its standard deviation $SNR_\lambda(\theta_p)=$,$SNR[\hat{F}_p(\theta,\lambda)]=$,$\frac{\hat{F}_p(\theta,\lambda)}{\sigma(\hat{F}_p(\theta,\lambda)}$. It is proposed that the combined cost functions of different wavelengths p(J') follow a chi-squared distribution with as many degrees of freedom as the number of wavelength bins. This is simulated and confirmed. 
+The physical characteristics of the planet are extracted from the data using a maximum-likelihood method for single planets and for multi planet systems, starting with the most likely planet position $ \hat \theta_{p} $ within the domain of positive fluxes. The robustness of this method is investigated using a Monte Carlo simulation. The noise is assumed to be spectrally independent normal noise whose variance can be estimated from the data. Priors can be introduced. The SNR at the position of the planet is the flux over its standard deviation $SNR_\lambda(\theta_{p})=$,$SNR[\hat F_{p} (\theta,\lambda)]=$ , $\frac{\hat{F}_p(\theta,\lambda)}{\sigma(\hat{F}_p(\theta,\lambda)}$. It is proposed that the combined cost functions of different wavelengths p(J') follow a chi-squared distribution with as many degrees of freedom as the number of wavelength bins. This is simulated and confirmed. 
 
 Based on a chi-squared distribution, one can define the probability of a false alarm for a 5 sigma confidence level, which leads to a detection threshold of $\eta=87$.  It is better to use $p(J_\lambda'')$ which has one degree of freedom. This can then be combined for all wavelength bins. This leads to a detection threshold of $\eta=65$.
 
