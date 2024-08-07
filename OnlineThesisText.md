@@ -118,8 +118,40 @@ When applying the analysis to the VIKiNG survey, it is calculated that contrasts
 
 <details>
 <summary> Ceau et al. 2019: Kernel-phase detection limits (JWST) </summary>
-To be added!
 
+Statistical tests are presented to derive contrast-detection limits for the JWST Near Infrared Imager and Slitless Spectrograph which will do kernel-phase analysis on faint brown dwarfs. 
+
+Several statistically independent observable quantities are constructed from a collection of aberration-robust kernel phases. 
+
+The NIRISS aperture masking interferometer observing mode takes advantage of self-calibrating observable quantities called closure phases. A *kernel phase* generalises this idea to apertures of arbitrary shapes and is reliable when aberration are withing one radian. They exploit the phase of the Fourier transform of the image, represented in the complex visibility vector $v$, with the phase vector $\Phi$ defined as its argument: $\Phi=\angle v$. 
+
+In the small aberration regime, a linear model relates the measured phase to the true phase $\Phi_0$ and the aberration phase present across the aperture $\phi$ via a phase transfer matrix $A$ dictating how the aberrations propagate into the Fourier phase via $\Phi =\Phi_0+A \phi$. A has the dimensions of the number of subapertures times the number of distinct baselines. The kernel matrix $K$ is the corresponding matrix that verifies $KA=0$, which can be constructed using singular value decomposition, and cancels the phase perturbations to the first order. After finding the kernel matrix, the vector of kernel phases can be extracted via $k=K\Phi$. 
+
+The main question in the paper is, given a data image, how likely is it that a companion is present. Generally, a statistical test tests if a certain test statistic $T(y)$ which is a function of the data $y$ is above or below a certain threshold $\xi$ which represents the rejection of the null hypothesis. The performance of a detect test is given by its probability of false alarm ($p_{FA}$, as low as possible) and its probability of detection ($p_{det}$, as high as possible), and the power of a test is its $p_{det}$ for a given $p_{FA}$, often represented in a ROC curve. 
+
+The noise on the kernels can be modelled by a correlated Gaussian distribution with covariance $\Sigma$. If the matrix is known, the kernel phases can be whitened into an uncorrelated vector with standard normally distributed noise. 
+
+Different tests are considered. 
+The likelihood ratio or Neyman-Pearson test requires the companion signature $x$ to be known. The test is then the ratio between dot product of the data $y$ with the signature $x$ over the data $y$ without signature ($x=0$) compared to a threshold. If $x$ is not known, this requirement can be omitted by testing it on all possible values of $x$ within a given parameter space. The generalised likelihood ratio is then a comparison between the maximum likelihood value for $x$, which must then exceed a certain threshold $\eta$. 
+
+If nothing is known about the signature, instead one can use an energy detector test, which uses the measured squared norm of the signal $||y||^2$. As the test does not exploit any prior knowledge of the structure of the object, it is a lower bound for the detection performance. 
+
+Another test statistic is the operational binary test $T_B$, which compares the chi squared value of the some model fitted on data y compared to no model fitted on data y (null hypothesis). The value $T_B$ quantifies how much the sum of squared residuals is reduced compared to the null hypothesis. 
+
+
+The tests are applied to a simulation of a binary system, represented by two dirac functions with different contrasts, at the origin and at coordinates $\alpha, \beta$. The maximum likelihood is found numerically, avoiding getting stuck in a local minimum. 
+
+Noises are modelled as 1) random noises via statistical errors corresponsing to the coraviance matrix and 2) systematic errors that remain even after the subtraction of kernal phases, due to wavefront drifts bewteen observations. 
+
+Experience shows that the covariance matrix can be accurately estimated by modelling noise from photons, readout and dark current. This can be used to whiten the noise. The covariance is estimated from Monte Carlo simulations. To account for the impact of unknown calibration errors on the contrast detection limits, the residuals of OPS maps are added to the diagonal of the covariance. 
+
+The results show that the parameters can be estimated but that the scatter becomes larger for lower S/N. At angular separations below the diffraction limit, estimates for the contrast and angular eparaiton are strongly correlated so they cannot be constrained simultaneously in a single visit, although this may be lifted by taking a second measurement at an epoch when the companion has moved outside the diffraction limit. 
+
+The theoretical and simulated ROC curves are plotted for the different tests. The Neyman-Pearson is the most powerful test, giving an upper performance bound. The Energy test is the least powerful, providing a lower bound. The operational binary test lies in between, closer to the upper bound. The simulated tests perform close to the theoretical maximum, and also perform well when wavefront errors are introduced. 
+
+For the faint dwarfs considered thus far, the dominating noise effect what that of dark current and read out noise rather than photon noise of the central object. In the case of a bright object, the contrast detection limit is affected by photon noise for separations smaller than 500 mas and then plateaus as dark current and readout noise dominate. When wavefront drift is taken into account for the bright case, 85% of the error comes from calibration errors and leads to 10x worse performance. 
+
+Conclusion: the statistical tests are useful, providing upper and lower bounds for achievable detection limits. Their false alarm rates are not affected by fluctuating aberrations within the linear regime. 
 </details>
 
 <details>
@@ -269,7 +301,7 @@ If the outputs are fed to a second stage which introduces $\pi/2$ phase shifts t
 
 Electric field combinations which are mirror images of one another are called enantiomorph. The outputs are insensitive to global phase shift and therefore the *phase reference input*[?] can be arbitrarily phase shifted to coincide with the real axis. 
 
-It can then be shown, when the phasors are small ($z_k=e^{-j \phi_k}\approx. 1-j\phi_k$, that  that the conjugate pair of null rows $m_1$ and $m_2$ of $M$ always produces a kernel null that is robust to these arbitrary imaginary phasors. The same is true for purely real input electric fields that would correspond to pure photometric error generated by fluctuations of the coupling efficiencies. 
+It can then be shown, when the phasors are small ($z_k=e^{-j \phi_k}\approx 1-j\phi_k$), that  that the conjugate pair of null rows $m_1$ and $m_2$ of $M$ always produces a kernel null that is robust to these arbitrary imaginary phasors. The same is true for purely real input electric fields that would correspond to pure photometric error generated by fluctuations of the coupling efficiencies. 
 
 [To do: understand figure 3]
 
@@ -280,7 +312,7 @@ The complementary observable to the kernel null is $\tau(z)$, the sum of the two
 
 The maximum number of nulled outputs for a given number of apertures is $n_{max}=(n_a-1)!$, although some of them are a linear combinations of the response function of other nulls. The number of independent kernell nulls is always the same of the number of independent closure phases: $\frac{(n_a-1)(n_a-2)}{2}}. A complete nuller provides the maximum number $n_{kn}$ of independent observables.
 
-The complex coefficients of $M$ can generally be written as $M_{l,k}=a_l \dot e^{j\phi_{k,l}}$ where $a_l$ is a real coefficient that normalises the the column vectors. 
+The complex coefficients of $M$ can generally be written as $M_{l,k}=a_l \cdot e^{j\phi_{k,l}}$ where $a_l$ is a real coefficient that normalises the the column vectors. 
 
 Our goal may be to construct complete combiners using the minimum number of combinations from the full matrix M, with the intent of increasing its throughput. Some words about ncrops and finding these combiner matrixes...?
 
