@@ -167,6 +167,21 @@ Written before discovery of exoplanets. Bracewell emphasises potential of infrar
 
 </details>
 
+
+
+<details>
+<summary> Huber et al. 2024: Analytical and Numerical Instrumental Noise for LIFE </summary>
+For LIFE's anticipated mission featuring four formation flying detectors, which aims assess the habitability of 20-50 temperate terrestrial exoplanets within ~20 pc., understanding all noise sources is necessary. In this paper we analyse two methods:
+1) Numerical solution obtained by propagating instability-induced errors in Monte Carlo simulations
+2) Analytical second order approximation of leakage from instrumental instability.
+Based on flexibility towards different architecturs, fidelity in modelling correlations of errors and fewer limitations concerning the variety of sources, the numerical methods is preferred.
+
+All previous studies for life described the interferometer using a mathematical framework known as a beam combination transfer matrix as proposed by Guyon et al. 2013. Hansen et al. 2023 used a Monte Carlo simulation to model reflectance and phase shift errors for a 5-input kernel nulling beam combiner. Lay 2004 provided an analytical framework using a second order approximation initially developed for the Terrestrial Planet Finder Interferometer, which was applied to the setup of LIFE by Dannert et al. 2024. In parallel this framework was applied by Laugier t al. 2023 on the ground-based VLTI-NOTT instrument. Dannert et al. 2024 proposed the 'numerical method', a matrix-based framework in combination with a Monte Carlo simulation. 
+
+The measured number of photons at the output of an interferometer at a wavelength bin is an integral including the width of that bin, the sky brightness distribution and the instrument response. If needed, information on the two polarisation states can be passed on via a two component vector. The instrument response depends on the architecture of the k-input j-output interferometer which is represented by a $j \times k$ beam combination transfer matrix. It is key for interferometry to represent the incoming signals at the inputs as a vector of complex amplitudes. After multiplication with M, one obtains the outputs for each channel j, whose square modulus represents the instrument response $R_j$. Different combinations of output channels can be summed or subtracted to build differential maps.
+
+</details>
+
 <details>
 <summary> Dannert et al. 2022: LIFE paper 2: Signal simulation, extraction and exoplanet parameters from single epoch observations </summary>
 
@@ -523,6 +538,9 @@ The main design of the LIFE space mission consists of 4 formation flying infrare
 	- Semi-analytical framework for underlying physics of combiner matrix
 	- Standardised language and approach for instrumental errors
 	- To be elaborated...
+
+## Parking lot for ideas
+- Compare with literature for error propagation of LISA (Laser Interferometer Space Antenna for Gravitational Waves)
 
 
 ## Syntax for images, links, code snippets etcetera
