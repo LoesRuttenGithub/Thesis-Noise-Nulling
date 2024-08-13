@@ -381,7 +381,7 @@ The performance of the method is validated using a numerical simulation.
 
 <img src="https://github.com/LoesRuttenGithub/Thesis-Noise-Nulling/blob/main/Figures/MMSE1.png" width="800" height="250">
 
-
+The performance of the method is then compared to other existing methods.
 
 
 
