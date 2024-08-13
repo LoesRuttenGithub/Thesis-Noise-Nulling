@@ -181,7 +181,7 @@ Based on flexibility towards different architectures, fidelity in modelling corr
 
 All previous studies for LIFE described the interferometer using a mathematical framework known as a beam combination transfer matrix as proposed by Guyon et al. 2013. Hansen et al. 2023 used a Monte Carlo simulation to model reflectance and phase shift errors for a 5-input kernel nulling beam combiner. Lay 2004 provided an analytical framework using a second order approximation initially developed for the Terrestrial Planet Finder Interferometer, which was applied to the setup of LIFE by Dannert et al. 2024. In parallel this framework was applied by Laugier t al. 2023 on the ground-based VLTI-NOTT instrument. Dannert et al. 2024 proposed the 'numerical method', a matrix-based framework in combination with a Monte Carlo simulation. 
 
-The measured number of photons at the output of an interferometer at a wavelength bin is an integral including the width of that bin, the sky brightness distribution and the instrument response. If needed, information on the two polarisation states can be passed on via a two component vector. The instrument response depends on the architecture of the k-input j-output interferometer which is represented by a $j \times k$ beam combination transfer matrix. It is key for interferometry to represent the incoming signals at the inputs as a vector of complex amplitudes. After multiplication with M, one obtains the outputs for each channel j, whose square modulus represents the instrument response $R_j$. Different combinations of output channels can be summed or subtracted to build differential maps. The photon rate can be written as a function of the amplitudes, phase shifts, polarisation angles and collector positions. The effect of instrumental perturbations on the photon rate $\delta N_j$ can then by described by perturbing the arguments of function $f_j$ via $\delta A_k, \delta \Phi_jk, \delta \theta_k, \detla x_k, \delta y_k$. 
+The measured number of photons at the output of an interferometer at a wavelength bin is an integral including the width of that bin, the sky brightness distribution and the instrument response. If needed, information on the two polarisation states can be passed on via a two component vector. The instrument response depends on the architecture of the k-input j-output interferometer which is represented by a $j \times k$ beam combination transfer matrix. It is key for interferometry to represent the incoming signals at the inputs as a vector of complex amplitudes. After multiplication with M, one obtains the outputs for each channel j, whose square modulus represents the instrument response $R_j$. Different combinations of output channels can be summed or subtracted to build differential maps. The photon rate can be written as a function of the amplitudes, phase shifts, polarisation angles and collector positions. The effect of instrumental perturbations on the photon rate $\delta N_j$ can then by described by perturbing the arguments of function $f_j$ via $\delta A_k, \delta \Phi_jk, \delta \theta_k, \delta x_k, \delta y_k$. 
 
 The numerical simulation of Huber et al. 2024 takes the following steps: Each instrument perturbation term is represented by a random time series generated based on a specific power spectrum. Based on these inputs, the perturbed instrument response is calculated. This is multiplied with the true signal so the photon rate per bin can be calculated. This is repeated for every timestep, so the result is a 'heatmap' showing the intensity at each wavelength for each point in time. 
 
@@ -360,7 +360,31 @@ While the distribution of kernel nulls is close to Gaussian, the distribution of
 
 <details>
 <summary> Flasseur et al. 2024: Shrinkage MMSE estimators of covariances beyond the zero-mean and stationary variance assumptions </summary>
-To be added!
+
+Estimating the numbers of a covariance matrix of a given dataset is challenging for small sample sizes because the variance on the estimators is high. Shrinkage methods can force regression coefficients (such as the components of the covariance matrix) towards lower values via a biased regularization. As long as the reduction in the error is large compared to the introduced bias, the resulting estimate will be more accurate. There is a trade-off between reducing the variance and introducing the bias. 
+
+This paper extends existing shrinkage methods for a multi-variate Gaussian case to include a regularisation matrix accounting for sample variances (non-uniform diagonal values) for both centered an non-centered (mean is non-zero) samples. 
+
+To optimise the trade-off between reducing the variance and introducing the bias, a coefficient $\rho$ can be defined, which serves as weighting between the original unbiases-high-variance estimate $\hat S$ and a low-variance biased estimate $\hat F$, which together combine into a new estimator $\hat C$, such that it minimises the error between the a *best estimate* of the covariance matrix $\hat C$ and the true value $C$. 
+
+If the true covariance is known, one can compute the *oracle shrinkage estimator* that optimises this weighting, but in practice the true $C$ is generally unknown and the goal is to find a best estimate together with a value for the uncertainty. However, it is possible to iteratively find a near-optimal *oracle-approximating shrinkage* through iteration of information inherent to the sample. 
+
+The paper presents analytical expressions for the *oracle-approximating shrinkage* estimator in the case of 
+
+1) Centered samples + non-weighted sample covariances + a diagonal structure for F
+
+2) Centered samples + regularization matrix $\hat F$ that accounts for sample variances
+
+3) General uncentered case (unknown $\mu \neq 0$ ) + weighted sample covariances
+
+The performance of the method is validated using a numerical simulation.
+
+<img src="https://github.com/LoesRuttenGithub/Thesis-Noise-Nulling/blob/main/Figures/MMSE1.png" width="800" height="250">
+
+
+
+
+
 
 </details>
 
