@@ -383,9 +383,10 @@ The performance of the method is validated using a numerical simulation.
 
 The performance of the method is then compared to the Ledoit-Wolf and Rao-Blackwell-Ledoit-Wolf shrinkage methods for the case of i.d.d. regularisation matrices $\hat F$, applied datasets with 3 levels of underlying covariances $C$, and compared to the results for the average variance solely (case 1) and sample variances (case 2). 
 
-<img src="https://github.com/LoesRuttenGithub/Thesis-Noise-Nulling/blob/main/Figures/MMSE2.png width="600" height="600">
+<img src="https://github.com/LoesRuttenGithub/Thesis-Noise-Nulling/blob/main/Figures/MMSE2.png" width="600" height="600">
 
-Finally the results are compared to high-contrast imaging data of VLT-SHPERE where stellar leakage causes spatially correlated speckles. Stellar speckles are quasi-static upon rotation of the telescope, while a planet signal rotates in correspondence with Earth's relative rotation. 
+Finally the results are compared to high-contrast imaging data of VLT-SHPERE where stellar leakage causes spatially correlated speckles. Stellar speckles are quasi-static upon rotation of the telescope, while a planet signal rotates in correspondence with Earth's relative rotation. A match-filter looks for an exoplanet. The mehtod is applied to a real dataset with N=92 esposures with $10^6$ pixels each, based on which P=113 circulare patches are chosen. In addition to the two real sources known to be around the star, 30 more are added. The model is forced to make 60 detection, of which thus 28 are false, so that the SNR for true and false detections can be compared for the different methods.
+<img src="https://github.com/LoesRuttenGithub/Thesis-Noise-Nulling/blob/main/Figures/MMSE4.png" width="600" height="600">
 
 </details>
 
