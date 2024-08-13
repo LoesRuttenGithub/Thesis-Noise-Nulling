@@ -188,7 +188,7 @@ The numerical simulation of Huber et al. 2024 takes the following steps: Each in
 Benefits of the numerical method:
 - Different architectures are possible, whereas not all architectures have an analytical framework ready for performance evaluations
 - There are numerical methods that can investigate correlations between different wavelength channels from the simulations. Lay mentions the existence of correlations in the systematic noise between channels but does not provide an analytical framework for them. 
-- Allows to investigate Lay's assumption that the instrument perturbations have zero mean over the ensemble average: $Var(\delta A_k)$=<\delta A_k^2>$. This assumption helps to simplify the analytical expression, but its not quantified for which level of perturbation this 'small instrument perturbation regime' is valid
+- Allows to investigate Lay's assumption that the instrument perturbations have zero mean over the ensemble average: $ Var(\delta A_k)$=\langle\delta A_k^2 \rangle$. This assumption helps to simplify the analytical expression, but its not quantified for which level of perturbation this 'small instrument perturbation regime' is valid
 
 The analytical method by Lay 2004 writes out a perturbation of the analytical equation up to second order. Several terms are neglected and the remaining terms are used for an expression of the photon rate perturbation. Direct current terms and even harmonics can be taken out by a Fourier decomposition. The remaining expression for the variance of the signal at an individual output $j$ contains several noise-coupling terms which express the extend to which the specific instrumental perturbation mimics a planet signal. A method called phase chopping is applied, where the induced phase shift is swapped sign, which allows for the removal of the contribution of stray light, thermal emission and detector gain. Each remaining noise coupling term can be written as a Fourier transform of the best fitting planet template signal and the power spectral distribution of that noise term, which need to be defined by the user. This then feeds into signal to noise calculations.
 
@@ -379,12 +379,13 @@ The paper presents analytical expressions for the *oracle-approximating shrinkag
 
 The performance of the method is validated using a numerical simulation.
 
-<img src="https://github.com/LoesRuttenGithub/Thesis-Noise-Nulling/blob/main/Figures/MMSE1.png" width="800" height="250">
+<img src="https://github.com/LoesRuttenGithub/Thesis-Noise-Nulling/blob/main/Figures/MMSE1.png" width="800" height="350">
 
-The performance of the method is then compared to other existing methods.
+The performance of the method is then compared to the Ledoit-Wolf and Rao-Blackwell-Ledoit-Wolf shrinkage methods for the case of i.d.d. regularisation matrices $\hat F$, applied datasets with 3 levels of underlying covariances $C$, and compared to the results for the average variance solely (case 1) and sample variances (case 2). 
 
+<img src="https://github.com/LoesRuttenGithub/Thesis-Noise-Nulling/blob/main/Figures/MMSE2.png width="600" height="600">
 
-
+Finally the results are compared to high-contrast imaging data of VLT-SHPERE where stellar leakage causes spatially correlated speckles. Stellar speckles are quasi-static upon rotation of the telescope, while a planet signal rotates in correspondence with Earth's relative rotation. 
 
 </details>
 
