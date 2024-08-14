@@ -184,16 +184,24 @@ Written before discovery of exoplanets. Bracewell emphasises potential of infrar
 Signals of different sources:
 - Planet: The planet has both a symmetric and asymmetric component. [? planet and antiplanet thing?]
 - Star: The star is $~10^7$ times brighter than the planet and dominates the signal. Assuming that the star is center symmetric, there is only a cosine term. If in addition the star is modelled as a uniform disk, the Fourier transform $B_{*jk}* can be represented analytically by a Bessel function. 
-	- The stellar photon rate can then be perturbed using a Taylor series to first order  ($f(x)|_0=\approx f(0) + f'(0)*x$) to its variables $\delta A_j, \detla \Phi_j, \delta x_j, \delta y_j$,. But when the perturbation is centered on the minimum, both $f(0)=0$ and $f'(0)=0$ so these first order terms are negligible. 
+	- The stellar photon rate can then be perturbed using a Taylor series to first order  ($f(x)|_0=\approx f(0) + f'(0)*x$) to its variables $\delta A_j, \detla \Phi_j, \delta x_j, \delta y_j$,. But when the perturbation is centered on the minimum, both $f(0)=0$ and $f'(0)=0$ so these first order terms are small. 
 	- The second order terms introduce additional $\frac{1}{2}\frac{\partial^2 N_*}{\partial a \partial b} \delta a \delta b$ terms. 
-	- [?] Lay drops the perturbations in x and y?
+	- [?] Lay drops the perturbations in x and y? Or does he absorb them into A and phi?
 	- One can then substitute the partial derivatives with sensitivity coefficients. As there is an analytical expression for $N^*$, there is an analytical expression for each sensitivity coefficient too.
 	- No derivation is made beyond second order. If the coefficients $C$ start to become large or if the deviations from the minimum become large, the higher order perturbations may introdue large terms. Is it interesting to test this?
 - Exo-zodiacal dust: It extends beyond the null, but if its contribution is assumed to be center symmetric, it will introduce a constant signal which can be subracted
 - Local zodiacal dust: It is a uniform incoherent foreground source of photons. Its incoherence means that there is no phase or baseline dependence. The amplitude sensitivity coefficient is computed to be half that of the star.
 
+The star, exo and local zodical dust combine into the perturbation leakage, that can be distinguished into 
 
-Null floor leakage 
+1) Geometric leakage, caused by the linear terms from to the star, LZ and EZ extending beyond the null of the interferometer. These can be separated from the planet signal in post-processing because of being linear.
+2) Null floor leakage, dominated by the star, arising from non-linear second order terms, causing the minimum to be above zero. The contributions are unique for each baseline pair. The non-linearity of the errors means that they cannot be calebrated in post-processing, so them must be minimised in real time. 
+
+[!] When one assumes uncorrelated amplitude and phase perturbations, then linear and cross terms are dropped because they average to zero, so the *mean photon rate* is $\langle N \rangle \approx N_0 + \sum_j [C_{AAjj}\langle \delta \alpha_j^2\rangle + C_{\Phi \Phi j j }\langle \delta \Phi_j^2 \rangle ]$.
+
+Rotation: As the array is rotated, the planet signal is modulated. It can be matched with a family of template functions representing a grid of possible planet positions. The signal can be studied in the time-domain as well as in the Fourier domain. Ten measurements per rotation are sufficient to sample signals up of the fifth harmonic of rotation frequency. The star contributes a direct current, while centrally symmetric exozodi contribute to even harmonics, so these can be removed from the template function creating the modified template function $\eta$.
+
+The demodulated (original, removing the effect of rotation) output signal of the planet is given by $O_{planet}=\frac{1}{T} \int_0^T N_{planet} \eta dt = \hat{N_{planet}}$, so the standard deviation of the planet photon rate, but the total output also contains random and systematic errors, where the random error is $\frac{\langle N \rangle}{T}$, the square root of the total photon rate, and the systematic errors are related to the perturbation terms derived before, which, [!] assuming independence in the perturbations [!] is the sum over the individual variances. The constants are noise-coupling terms which quantify how much each term mimics the planet signal. 
 
 
 
