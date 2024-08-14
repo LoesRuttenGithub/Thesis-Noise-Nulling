@@ -156,13 +156,45 @@ Conclusion: the statistical tests are useful, providing upper and lower bounds f
 
 <details>
 <summary> Lay 2004: Systematic errors in nulling interferometers </summary>
-To be added!
+
+This paper presents an analysis of systematic errors to second order resulting from fluctuations in the null depth of a dual Bracewell interferometer. In other analysis, random noise consisting of photon shot noise and electronic noise has been studied. Systematic noise consists of 
+- Imperfections in the amplitude response due to the reflectivity of the optics, tip/tilt, focus and higher-order wave-front errors, and beam shear.
+- Imperfection in the phase response of each arms, including path-length errors, dispersion and birefringence
+- Errors in the positions of the collectors
+- Errors in the polarisations
+- Fluctuations in the amount of stray light
+- Thermally emitted photons
+- Fluctuations in the detector gain
+
+Expressions for the detected photon rate for each collector are formulated as $N=\int \int B_{sky}(s) R(s) P(s) d\Omega$ where B is the brightness distribution on the sky, P is a function representing the aperture and R is the response of the interferometer on the sky. The electric field in the single-mode spatial filter produced by a point source in the sky is given by the sum over the contributions from each collector: $r(s)=\sum_j  A_j e^{[i(\phi_j'+\frac{2 \pi}{\lambda} x_j \cdot s)]}$. The response $R(s)=r r^*=\sum_j \sum_k A_j A_k \cos \left( \Phi_j'-\Phi_k'+\frac{2 \pi}{\lambda} (x_j-x_k)\cdot s \right) \approx \sum_j \sum_k A_j A_k \cos \left( \Phi_j-\Phi_k+\frac{2 \pi}{\lambda} [x_{jk}\theta_x+y_{jk}\theta_y]$, where the position of the collectors has been translated to a phase shift and where the small-angle approximation has been applied. The expression for $R(s)$ can be rewritten using $\cos(\alpha + \beta)=\cos \alpha \cos \beta - \sin \alpha \sin \beta$. Note that the first term is an even function and the second term is an odd function. When the sky brightness distribution is split up in a symmetric and asymmetric component, the full integral for N can be expressed as an even and an odd term, where $\cos(\Phi_j-\Phi_k)$ and $\sin(\Phi_j-\Phi_k)$ can be taken out of the first and second integral as they do not depend on solid angle $d\Omega=d \theta_x d \theta_y$.
+
+Finally the total photon rate is the sum over all possible pairs of collectors, j&k.
+
+Because of the properties of the sine and cosine, all terms with phase differences $\Phi_j-\Phi_k$ of integer multiples of half a period, $\pi$, adds up the cosine parts, but cancels the sine parts, so that only the symmetric part of the input signal remains. For all terms with phase differences $\Phi_j-\Phi_k$ of integer multiples of a quarter period, $\pi/2$, the cosine exactly cancels while the sine parts add up, so that the asymmetric part of the input signal remains. The 16 different permutations for a dual Bracewell are shown in Figure 2, together with the total output signal, for a signal of a star, local zodiacal dust, exozodiacal dust and a planet.
+
+<img src="https://github.com/LoesRuttenGithub/Thesis-Noise-Nulling/blob/main/Figures/Lay2.png" width="300" height="600">
+(Idea: colour code terms through thesis)
 </details>
 
 <details>
 <summary> Bracewell 1978: Detecting nonsolar planets by spinning infrared interferometer </summary>
 
 Written before discovery of exoplanets. Bracewell emphasises potential of infrared to study exoplanets, because in the visible, a planet emits $\sim 10^{-9}$ the flux of starlight, but in the Rayleigh-Jeans regime of IR, the factor would be $\sim 10^{-4}$ which is a *relative difference of* $10^5$ *between visible and infrared*. Bracewell proposes placing an interference null on the star. The star+planet signal can be disentangled by *rotating the interferometer*, which will modulate the (asymmetric) planet signal but will keep the stellar signal constant. Effects of pointing errors can be mitigated by designing the architecture such that a planet is $k$ fringe spacings away, so that the star signal modulation from misalignment has a different period than the planet modulation. Photon noise mainly originating from zodiacal light is pointed out as the main challenge when studying planetary photons. At the time of writing, not enough was known about the infrared environment in Earth's atmosphere, the solar system, as well as galactic and extragalactic contributions, to be sure that exoplanets could be measured over other incoming environmental infrared radiation.
+
+Signals of different sources:
+- Planet: The planet has both a symmetric and asymmetric component. [? planet and antiplanet thing?]
+- Star: The star is $~10^7$ times brighter than the planet and dominates the signal. Assuming that the star is center symmetric, there is only a cosine term. If in addition the star is modelled as a uniform disk, the Fourier transform $B_{*jk}* can be represented analytically by a Bessel function. 
+	- The stellar photon rate can then be perturbed using a Taylor series to first order  ($f(x)|_0=\approx f(0) + f'(0)*x$) to its variables $\delta A_j, \detla \Phi_j, \delta x_j, \delta y_j$,. But when the perturbation is centered on the minimum, both $f(0)=0$ and $f'(0)=0$ so these first order terms are negligible. 
+	- The second order terms introduce additional $\frac{1}{2}\frac{\partial^2 N_*}{\partial a \partial b} \delta a \delta b$ terms. 
+	- [?] Lay drops the perturbations in x and y?
+	- One can then substitute the partial derivatives with sensitivity coefficients. As there is an analytical expression for $N^*$, there is an analytical expression for each sensitivity coefficient too.
+	- No derivation is made beyond second order. If the coefficients $C$ start to become large or if the deviations from the minimum become large, the higher order perturbations may introdue large terms. Is it interesting to test this?
+- Exo-zodiacal dust: It extends beyond the null, but if its contribution is assumed to be center symmetric, it will introduce a constant signal which can be subracted
+- Local zodiacal dust: It is a uniform incoherent foreground source of photons. Its incoherence means that there is no phase or baseline dependence. The amplitude sensitivity coefficient is computed to be half that of the star.
+
+
+Null floor leakage 
+
 
 
 </details>
@@ -379,14 +411,14 @@ The paper presents analytical expressions for the *oracle-approximating shrinkag
 
 The performance of the method is validated using a numerical simulation.
 
-<img src="https://github.com/LoesRuttenGithub/Thesis-Noise-Nulling/blob/main/Figures/MMSE1.png" width="800" height="350">
+<img src="https://github.com/LoesRuttenGithub/Thesis-Noise-Nulling/blob/main/Figures/MMSE1.png" width="800" height="370">
 
 The performance of the method is then compared to the Ledoit-Wolf and Rao-Blackwell-Ledoit-Wolf shrinkage methods for the case of i.d.d. regularisation matrices $\hat F$, applied datasets with 3 levels of underlying covariances $C$, and compared to the results for the average variance solely (case 1) and sample variances (case 2). 
 
-<img src="https://github.com/LoesRuttenGithub/Thesis-Noise-Nulling/blob/main/Figures/MMSE2.png" width="600" height="600">
+<img src="https://github.com/LoesRuttenGithub/Thesis-Noise-Nulling/blob/main/Figures/MMSE2.png" width="700" height="660">
 
 Finally the results are compared to high-contrast imaging data of VLT-SHPERE where stellar leakage causes spatially correlated speckles. Stellar speckles are quasi-static upon rotation of the telescope, while a planet signal rotates in correspondence with Earth's relative rotation. A match-filter looks for an exoplanet. The mehtod is applied to a real dataset with N=92 esposures with $10^6$ pixels each, based on which P=113 circulare patches are chosen. In addition to the two real sources known to be around the star, 30 more are added. The model is forced to make 60 detection, of which thus 28 are false, so that the SNR for true and false detections can be compared for the different methods.
-<img src="https://github.com/LoesRuttenGithub/Thesis-Noise-Nulling/blob/main/Figures/MMSE4.png" width="600" height="600">
+<img src="https://github.com/LoesRuttenGithub/Thesis-Noise-Nulling/blob/main/Figures/MMSE4.png" width="800" height="600">
 
 </details>
 
