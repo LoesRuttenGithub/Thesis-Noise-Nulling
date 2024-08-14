@@ -173,13 +173,7 @@ Finally the total photon rate is the sum over all possible pairs of collectors, 
 Because of the properties of the sine and cosine, all terms with phase differences $\Phi_j-\Phi_k$ of integer multiples of half a period, $\pi$, adds up the cosine parts, but cancels the sine parts, so that only the symmetric part of the input signal remains. For all terms with phase differences $\Phi_j-\Phi_k$ of integer multiples of a quarter period, $\pi/2$, the cosine exactly cancels while the sine parts add up, so that the asymmetric part of the input signal remains. The 16 different permutations for a dual Bracewell are shown in Figure 2, together with the total output signal, for a signal of a star, local zodiacal dust, exozodiacal dust and a planet.
 
 <img src="https://github.com/LoesRuttenGithub/Thesis-Noise-Nulling/blob/main/Figures/Lay2.png" width="450" height="600">
-(Idea: colour code terms through thesis)
-</details>
 
-<details>
-<summary> Bracewell 1978: Detecting nonsolar planets by spinning infrared interferometer </summary>
-
-Written before discovery of exoplanets. Bracewell emphasises potential of infrared to study exoplanets, because in the visible, a planet emits $\sim 10^{-9}$ the flux of starlight, but in the Rayleigh-Jeans regime of IR, the factor would be $\sim 10^{-4}$ which is a *relative difference of* $10^5$ *between visible and infrared*. Bracewell proposes placing an interference null on the star. The star+planet signal can be disentangled by *rotating the interferometer*, which will modulate the (asymmetric) planet signal but will keep the stellar signal constant. Effects of pointing errors can be mitigated by designing the architecture such that a planet is $k$ fringe spacings away, so that the star signal modulation from misalignment has a different period than the planet modulation. Photon noise mainly originating from zodiacal light is pointed out as the main challenge when studying planetary photons. At the time of writing, not enough was known about the infrared environment in Earth's atmosphere, the solar system, as well as galactic and extragalactic contributions, to be sure that exoplanets could be measured over other incoming environmental infrared radiation.
 
 Signals of different sources:
 - Planet: The planet has both a symmetric and asymmetric component. [? planet and antiplanet thing?]
@@ -204,6 +198,15 @@ Rotation: As the array is rotated, the planet signal is modulated. It can be mat
 The demodulated (original, removing the effect of rotation) output signal of the planet is given by $O_{planet}=\frac{1}{T} \int_0^T N_{planet} \eta dt = \hat{N_{planet}}$, so the standard deviation of the planet photon rate, but the total output also contains random and systematic errors, where the random error is $\frac{\langle N \rangle}{T}$, the square root of the total photon rate, and the systematic errors are related to the perturbation terms derived before, which, [!] assuming independence in the perturbations [!] is the sum over the individual variances. The constants are noise-coupling terms which quantify how much each term mimics the planet signal. 
 
 
+
+
+(Idea: colour code terms through thesis)
+</details>
+
+<details>
+<summary> Bracewell 1978: Detecting nonsolar planets by spinning infrared interferometer </summary>
+
+Written before discovery of exoplanets. Bracewell emphasises potential of infrared to study exoplanets, because in the visible, a planet emits $\sim 10^{-9}$ the flux of starlight, but in the Rayleigh-Jeans regime of IR, the factor would be $\sim 10^{-4}$ which is a *relative difference of* $10^5$ *between visible and infrared*. Bracewell proposes placing an interference null on the star. The star+planet signal can be disentangled by *rotating the interferometer*, which will modulate the (asymmetric) planet signal but will keep the stellar signal constant. Effects of pointing errors can be mitigated by designing the architecture such that a planet is $k$ fringe spacings away, so that the star signal modulation from misalignment has a different period than the planet modulation. Photon noise mainly originating from zodiacal light is pointed out as the main challenge when studying planetary photons. At the time of writing, not enough was known about the infrared environment in Earth's atmosphere, the solar system, as well as galactic and extragalactic contributions, to be sure that exoplanets could be measured over other incoming environmental infrared radiation.
 
 </details>
 
