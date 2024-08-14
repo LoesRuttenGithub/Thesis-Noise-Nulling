@@ -157,7 +157,7 @@ Conclusion: the statistical tests are useful, providing upper and lower bounds f
 <details>
 <summary> Lay 2004: Systematic errors in nulling interferometers </summary>
 
-This paper presents an analysis of systematic errors to second order resulting from fluctuations in the null depth of a dual Bracewell interferometer. In other analysis, random noise consisting of photon shot noise and electronic noise has been studied. Systematic noise consists of 
+This paper presents an analysis of systematic errors to second order resulting from fluctuations in the null depth of a dual Bracewell interferometer. In other analyses, random noise consisting of photon shot noise and electronic noise has been studied. Systematic noise consists of 
 - Imperfections in the amplitude response due to (static, linear) errors in the reflectivity of the optics.  Higher-order wave-front errors, tilt errors, focus, astigmatism, coma and beam shear all have non-linear responses which have to be modelled in detail. 
 - Imperfection in the phase response of each arms, including path-length errors, dispersion and birefringence, which can be static (part of the equipment) or dynamic (drifts and vibrations). Fringe tracking corrects for this, but has its own imperfections.
 - Errors in the positions of the collectors
@@ -175,7 +175,7 @@ Because of the properties of the sine and cosine, all terms with phase differenc
 <img src="https://github.com/LoesRuttenGithub/Thesis-Noise-Nulling/blob/main/Figures/Lay2.png" width="450" height="600">
 
 
-Signals of different sources:
+Signals of different astronomical sources:
 - Planet: The planet has both a symmetric and asymmetric component. [? planet and antiplanet thing?]
 - Star: The star is $~10^7$ times brighter than the planet and dominates the signal. Assuming that the star is center symmetric, there is only a cosine term. If in addition the star is modelled as a uniform disk, the Fourier transform $B_{*jk}$ can be represented analytically by a Bessel function. 
 	- The stellar photon rate can then be perturbed using a Taylor series to first order  ($f(x)|_0=\approx f(0) + f'(0) \cdot x$) to its variables $\delta A_j, \delta \Phi_j, \delta x_j, \delta y_j$,. But when the perturbation is centered on the minimum, both $f(0)=0$ and $f'(0)=0$ so these first order terms are small. 
@@ -183,30 +183,52 @@ Signals of different sources:
 	- [?] Lay drops the perturbations in x and y? Or does he absorb them into A and phi?
 	- One can then substitute the partial derivatives with sensitivity coefficients. As there is an analytical expression for $N^*$, there is an analytical expression for each sensitivity coefficient too.
 	- No derivation is made beyond second order. If the coefficients $C$ start to become large or if the deviations from the minimum become large, the higher order perturbations may introduce large terms. Is it interesting to test this?
+	- The effects of asymmetric star spots on the noise is investigated, which contributes to the signal of the first harmonic of rotation frequency, which can omitted by considering only higher order uneven harmonics.
 - Exo-zodiacal dust: It extends beyond the null, but if its contribution is assumed to be center symmetric, it will introduce a constant signal which can be subtracted
+	- The emission from dust is easily 350 times the flux of the planet. Asymmetric inhomogeneities in the disk can be confused with the planet signal. With long imaging baselines, corresponding to high angular resolution, one should be able to distinguish between the point-like planet signal and a more spatially extended exo-zodi variation. 
 - Local zodiacal dust: It is a uniform incoherent foreground source of photons. Its incoherence means that there is no phase or baseline dependence. The amplitude sensitivity coefficient is computed to be half that of the star.
 
 The star, exo and local zodiacal dust combine into the perturbation leakage, that can be distinguished into 
 
 1) Geometric leakage, caused by the linear terms from to the star, LZ and EZ extending beyond the null of the interferometer. These can be separated from the planet signal in post-processing because of being linear.
+
 2) Null floor leakage, dominated by the star, arising from non-linear second order terms, causing the minimum to be above zero. The contributions are unique for each baseline pair. The non-linearity of the errors means that they cannot be calibrated in post-processing, so them must be minimised in real time. 
 
 [!] When one assumes uncorrelated amplitude and phase perturbations, then linear and cross terms are dropped because they average to zero, so the *mean photon rate* is $\langle N \rangle \approx N_0 + \sum_j [C_{AAjj}\langle \delta \alpha_j^2\rangle + C_{\Phi \Phi j j }\langle \delta \Phi_j^2 \rangle ]$.
 
-Rotation: As the array is rotated, the planet signal is modulated. It can be matched with a family of template functions representing a grid of possible planet positions. The signal can be studied in the time-domain as well as in the Fourier domain. Ten measurements per rotation are sufficient to sample signals up of the fifth harmonic of rotation frequency. The star contributes a direct current, while centrally symmetric exozodi contribute to even harmonics, so these can be removed from the template function creating the modified template function $\eta$.
+**Rotation:**
+
+As the array is rotated, the planet signal is modulated. It can be matched with a family of template functions representing a grid of possible planet positions. The signal can be studied in the time-domain as well as in the Fourier domain. Ten measurements per rotation are sufficient to sample signals up of the fifth harmonic of rotation frequency. The star contributes a direct current, while centrally symmetric exozodi contribute to even harmonics, so these can be removed from the template function creating the modified template function $\eta$.
 
 The demodulated (original, removing the effect of rotation) output signal of the planet is given by $O_{planet}=\frac{1}{T} \int_0^T N_{planet} \eta dt = \widehat{N_{planet}}$, so the standard deviation of the planet photon rate, but the total output also contains random and systematic errors, where the random error is $\frac{\langle N \rangle}{T}$, the square root of the total photon rate, which can include polarisation errors, stray light and thermal photon rates, and the systematic errors are related to the perturbation terms derived before, which, [!] assuming independence in the perturbations [!] is the sum over the individual variances. The constants are noise-coupling terms which quantify how much each term mimics the planet signal. $\langle \widehat{\delta a_j}^2\rangle$ are linear terms, averaged before the square, $\langle \widehat{\delta a_j \delta \Phi_k}^2\rangle$ are bilinear terms, and $\langle \widehat{\delta a_j^2}^2\rangle$ the average square value, squared. The perturbations are written as Fourier series to allow their analysis in the frequency domain, where their shape is determined by the power spectral density function. The amplitude fluctuations can be filtered out.
 
 The bilinear cases with contributions from both an amplitude perturbation and a phase perturbation is more complicated because the power spectrum is a convolution of the amplitude and phase power spectra. For quadratic terms in amplitude, phase and polarsation, noise perturbations of one harmonic contribute other harmonics, also called frequency mixing. These cannot be removed in post-processing and therefore need to be limited in real time. 
 
-It is systematic errors, in particular the amplitude-phase cross term, that drive the system requirements.
-
-Although stray light, thermal emission and changes in detector gain are not dominant sources of noise, their slow variations can mimic the planet signal even in small quantities. It is possible to remove them via phase chopping. The output is split in two beams with opposite phases. The symmetric component is the same for both while the antisymmetric is the opposite. Subtracting one from the other, only the antisymmetric term remains, which contains the planet signal, and a chopped signal. The planet signal modulates differently between the left and right chop, but the chopped signal is similar for both signals.
-
-The variance of the systematic errors is the variance of the asymmetric signal and the chop signal. The variance of the asymmetric signal is correlated and can be redefined as independent variables containing the part that is common in both chop states (+) and the part that is different (-), for all combinations of perturbations up to second order. An ideal chopper has only (+) terms, whirch results in sensitivities to only first-order phase effects and second order amplitude-phase cross term. 
+It is systematic errors, in particular the amplitude-phase cross term, that drive the system requirements. Although stray light, thermal emission and changes in detector gain are not dominant sources of noise, their slow variations can mimic the planet signal even in small quantities. It is possible to remove them via phase chopping. 
 
 
+**Phase chopping**
 
+The output is split in two beams with opposite phases. The symmetric component is the same for both while the antisymmetric is the opposite. Subtracting one from the other, only the antisymmetric term $O_{asym}$ remains, which contains the planet signal, and errors at the chop frequency $O_{chop}$. The planet signal modulates differently between the left and right chop, but the chopped signal is similar for both signals. The variance of the systematic errors is the variance of the asymmetric signal and the chop signal. 
+
+$\langle O_{asym} ^2 \rangle$
+
+The variance of the asymmetric signal is correlated and can be redefined as independent variables containing the part that is common in both chop states (+) and the part that is different (-), for all combinations of perturbations up to second order. An ideal chopper has only (+) terms, whirch results in sensitivities to only first-order phase effects and second order amplitude-phase cross term. 
+
+$\langle O_{chop}^2 \rangle$
+The DC component cancels while the perturbations remain. One can expand the terms to arrive to an expression with all explicit noise-couplking terms. This resutls in equations that specify how to calculate the error at the chop frequency given the power spectra of the perturbatoins. 
+
+An important caviat of phase chopping is that the amplitude-phase cross terms remain, which were the dominant error. It can be shown mathematically that it is impossible to remove the remaining systematic noise without removing the planet signal.
+
+**Combining spectral channels**
+
+The different channels can be added upt to obtain an overall signal-to-noise ratio. The systematic errors of adjacent wavelength bins are highly correlated. The different errors have different wavelength dependencies: path-length errors $\propto \lambda^{-1}$ in phase, wavefront error $\propto \lambda^{-2}$ in amplitude, , amplitude-phase  error $\propto \lambda^\{-3}$, shear error $\propto \lambda^0$ in amplitude and coating disperion $\propto \lambda^0$ in phase. These would require detailed modelling. Instead, a workaround is to define a number of independent channels and base the total SNR on the square-root of the sum of the squared SNR of the independent channels. 
+
+**Wavelength dependence**
+The planet signal risres towards long wavelengths. The systematic noise increases rapidly at short wavelengths. The random noise is higher at short wavelengths due to star light and at long wavelengths due to dust. As a result, spectroscopy becomes challenging below 10 um and has a maximum sensitivity at 14 um. 
+<img src="https://github.com/LoesRuttenGithub/Thesis-Noise-Nulling/blob/main/Figures/Lay10.png" width="450" height="450">
+
+Moreover, as the target is closer to us, the angular size of the star increases beyond the null so that setllar leakage increases, so that the co-phasing error becomes the dominant limitation on the SNR. 
 
 (Idea: colour code terms through thesis)
 </details>
