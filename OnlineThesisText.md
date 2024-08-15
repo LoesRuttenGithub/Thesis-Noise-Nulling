@@ -226,7 +226,7 @@ The different channels can be added upt to obtain an overall signal-to-noise rat
 
 **Wavelength dependence**
 The planet signal risres towards long wavelengths. The systematic noise increases rapidly at short wavelengths. The random noise is higher at short wavelengths due to star light and at long wavelengths due to dust. As a result, spectroscopy becomes challenging below 10 um and has a maximum sensitivity at 14 um. 
-<img src="https://github.com/LoesRuttenGithub/Thesis-Noise-Nulling/blob/main/Figures/Lay10.png" width="450" height="450">
+<img src="https://github.com/LoesRuttenGithub/Thesis-Noise-Nulling/blob/main/Figures/Lay10.png" width="500" height="450">
 
 Moreover, as the target is closer to us, the angular size of the star increases beyond the null so that setllar leakage increases, so that the co-phasing error becomes the dominant limitation on the SNR. 
 
@@ -636,27 +636,62 @@ The main design of the LIFE space mission consists of 4 formation flying infrare
 <img src="https://github.com/LoesRuttenGithub/Thesis-Noise-Nulling/blob/main/Figures/Artists-impression-LIFE.png" width="700" height="300">
 
 **5. Physics of nulling interferometry**
-
 	- To be included!
 	- Optics, diffraction, PSF, wavefronts etc.
 
+Direct observation of a star and a planetary companion has several challenges. 
+
+**1) Diffraction limit:** The separation between the star and the exoplanet is very small (in the order of AUs) compared to the distance between us and the star. Therefore the *angular separation* is very small, smaller than existing telescopes can resolve. Even if a source is infinitely small, its image on a telescope is not infinitely small. A point source of wavelength $\lambda$ measured by a telescope with aperture size D results in an image with an characteristic angular size of $\lambda/D$. This effect is called diffraction and is relevant when imaging very small objects. The focal properties of the telescope can be described as an aperture function $A(x,y)$ in the spatial domain. The Point Spread Function in the image plane then is the squared magnitude of the Fourier transform of the aperture function. 
+
+**2) Contrast problem:** The light of the star is 6 to 9 orders of magnitude brighter than the planet, so it is difficult to have an instrument with sensitivity to the exoplanet while not being saturated by the light of the host star.
+
+**3) Atmospheric window:** In case of ground-based observations, a part of the spectrum is absorbed by Earth's atmosphere. It is exactly the spectral lines of some of the molecules of interest to study exoplanet atmospheres, that are blocked for ground-based telescopes. However, as this thesis considers a space-based telescope, this will not be a problem.  
+
+**4) Optical aberrations:**
+The light does not arrive as perfect plane waves due to interaction with the interstellar medium between the star an the telescope. This problem is largely mitigated for a space-based telescope compared to a ground-based telescope, for which turbulence in the atmosphere is the main source of wavefront distortion. The result is optical aberrations, where each short exposure is slightly different so that adding it up to a long exposure doesn't improve the image but just adds up to a blurry image. For ground-based telescopes, it is common to include adaptive optics. This instrument measures the wavefront errors and adapts the shape of a mirror to correct for them.
+
+The combination of working on a high contrast problem within the diffraction limit is as follows: When studying a hypothetical similar object to the host star with the same PSF, that PSF cannot simply be subtracted from the system of interest to end up with the planet signal, because the arrival of photons is a fundamentally random Poisson distributed process. The standard deviation of the photon count scales with the square of the photon count, which means that the error between to images of the same object taken at different moment is many orders of magnitude larger than the planet signal of interest.
+
+Therefore it is key to remove starlight before recording it. One method is coronography, a method to block on-axis light before the light is recorded by the telescope. This method is not discussed in detail here. A fundamental limitation to coronography is still the diffraction limit of the aperture, which means the spatial resolution is limited. This is a limiting factor for the study of terrestrial exoplanets in habitable zones, because they have smaller angular separations from their host stars than gas giants and ice giants. Angular resolution can be enhanced one step further via interferometry. 
+
+In interferometry, the baseline between the two telescopes determines the diffraction limit. Light of different places is combined, creating a fringe pattern of constructive and destructive interference bands which can be described as a wave with an amplitude (modulus) and position (phase).  Besides the amplitude and phase, the signal contains other information. A symmetric source will have light that perfectly interferes, which means the minima coincide with zero flux. However, if the object of interest also contains off-axis light (for example, a planet), then the flux does not exactly equal zero at the bottom fringe. Nulling interferometry studies this 'almost null' in detail. However, in practice, the planet signal in the null is still plagued the random photon noise, which scales with the square-root of the host star. Therefore, analogous to coronography, an interferometric solution is needed that separates the on-axis starlight from the off-axis planet: a nulling beam-combiner. 
+
+The concept was first proposed by Bracewell in 1978. Since then, different architectures have been proposed, including a double Bracewell by Angel & Woolf in 1997 producing one differential null, a setup with 4 telescopes creating 3 differential nulls by Martinache & Ireland in 2018 and a setup with up to 6 telescopes and 10 differential nulled outputs proposed by Laugier and colleagues in 2020. 
+
+Nulling interferometry has been shown to work in practice, namely through the Multiple Mirror Telescope in Arizona (Hinz et al. 1998) and the Keck Interferometer Nuller using a double Bracewell setup, the Large Binocular Telecsope Nulling Optimised Mid-Infrared Camera, GLINT integrated optics nulling combiner at Subaru/SCExAO, VLT/NACO from which a spectrum was obtained, ExoGRAVITY Lacour et al. 2019extremely good astrometric position of the planet. 
+
+Example figures from Lagadec et al. 2018
+
+
+(1:03)
 **6. Sources of fundamental noise & LIFEsim**
 - Photon noise
-- Read-out noise
-- Zodiacal dust
+- Exo-zodiacal dust
+- Local zodiacal dust
 - P-pop MC tool
 
 **7. Sources of instrumental noise**
+- Sources of instrumental noise
 - Explanation how architecture leads to correlated noise
 - Study by Lay
-- Statistical framework by Ceau for Kernel-phase detection limits
 - Study for Asgard/NOTT
 
-- Open questions for instrumental noise
-	- Consequence of sub-optimal alignment, error trifecta
-	- Semi-analytical framework for underlying physics of combiner matrix
-	- Standardised language and approach for instrumental errors
-	- To be elaborated...
+
+**8. State of the art**
+**8c. Open questions for numerical simulations**
+
+**8b. Open questions for instrumental noise**
+- Consequence of sub-optimal alignment, error trifecta
+- Semi-analytical framework for underlying physics of combiner matrix
+- Standardised language and approach for instrumental errors
+- To be elaborated...
+
+
+**8c. Further development of detection statistics**
+- Statistical framework by Ceau for Kernel-phase detection limits
+- Covariance matrix
+- $\tau(z)$
+
 
 ## Parking lot for ideas
 - Compare with literature for error propagation of LISA (Laser Interferometer Space Antenna for Gravitational Waves)
