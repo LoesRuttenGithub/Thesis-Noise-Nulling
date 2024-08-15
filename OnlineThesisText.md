@@ -661,15 +661,16 @@ The combination of working on a high contrast problem within the diffraction lim
 Therefore it is key to remove starlight before recording it. One method is coronography, a method to block on-axis light before the light is recorded by the telescope. This method is not discussed in detail here. A fundamental limitation to coronography is still the diffraction limit of the aperture, which means the spatial resolution is limited. This is a limiting factor for the study of terrestrial exoplanets in habitable zones, because they have smaller angular separations from their host stars than gas giants and ice giants. Angular resolution can be enhanced one step further via interferometry. 
 
 
-**Interferomtery**
+**Interferometry**
+
 In interferometry, the baseline between the two telescopes determines the diffraction limit. An interferometer probes spatial frequency coordinates $u, v$ of an object.
-As stated by the Van Cittert-Zernike theorem, the Fourier transform of the intensity distribution function of a distant, incoherent source is equal to its complex visibility $V((u,c)$:
-$$V(u,v)=|V|e^{i\Phi}=\frac{\int \int I(\alpha, \beta}e^{-2 i \pi (\alpha u + \beta v)} d(\alpha, \beta)}{\int \int I(\alpha, \beta} d(\alpha, \beta)}$$
+As stated by the Van Cittert-Zernike theorem, the Fourier transform of the intensity distribution function of a distant, incoherent source is equal to its complex visibility $V(u,c)$:
+$$V(u,v)=|V|e^{i\Phi}=\frac{\int \int I(\alpha, \beta)e^{-2 i \pi (\alpha u + \beta v)} d(\alpha, \beta)}{\int \int I(\alpha, \beta) d(\alpha, \beta)}$$
 Different spatial shapes and symmetries translate to different spatial frequencies. With knowledge on the expected source, the best fit with some template function can be found, based on which the original image can be reconstructed.
 
 Light of different places is combined. Under the condition that light is coherent, it creates a fringe pattern of constructive and destructive interference bands. The coherence condition means that the phase difference between the light measured at the different subapertures is constant over time. This means several things: The wavefront is intrinsically spatially coherent, so the source light is in phase with itself along the distance of the baseline. This also implies that the light is confined to a narrow wavelength bandwidth. In practice this can be worked around by channelling chromatic light into separate channels. This is generally true for a distant source that passes through space in the absence of turbulence. It also requires the optical path from both subapertures to the combiner to be exactly the same length, to a fraction of the wavelength of interest. 
 
-<img src="https://github.com/LoesRuttenGithub/Thesis-Noise-Nulling/blob/main/Figures/OPDdummy.png" width="700" height="300">
+<img src="https://github.com/LoesRuttenGithub/Thesis-Noise-Nulling/blob/main/Figures/OPDdummy.png" width="600" height="300">
 
 From the fringe pattern created by multiple subapertures, one an extract an amplitude and a phase of the input signal. Besides these, there are indirect parameters specific to the combination or differences of signals from the different subapertures, that contain extra information on the source, such as the closure phase in classic interferometery and the kernel phase in nulling interferometry. It is common to rotate the interferometer, and sometimes one can also study different wavelengths of baselines. As mentioned before, different spatial shapes and symmetries translate to different spatial frequencies, and these also vary characteristically with rotation angle, wavelength or baseline. Based on the pattern in the $(u,v)$-plane, the original image can be reconstructed. For example, a point source leaves a different image than an extended central disk, a thin ring leaves a different image than a thick ring, and binary system with one on-axis and one off-axis point source leaves a different image than an on-axis point source. 
 
