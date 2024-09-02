@@ -261,7 +261,7 @@ The numerical simulation of Huber et al. 2024 takes the following steps: Each in
 Benefits of the numerical method:
 - Different architectures are possible, whereas not all architectures have an analytical framework ready for performance evaluations
 - There are numerical methods that can investigate correlations between different wavelength channels from the simulations. Lay mentions the existence of correlations in the systematic noise between channels but does not provide an analytical framework for them. 
-- Allows to investigate Lay's assumption that the instrument perturbations have zero mean over the ensemble average: $ Var(\delta A_k)$=\langle\delta A_k^2 \rangle$. This assumption helps to simplify the analytical expression, but its not quantified for which level of perturbation this 'small instrument perturbation regime' is valid
+- Allows to investigate Lay's assumption that the instrument perturbations have zero mean over the ensemble average: $Var(\delta A_k)=\langle\delta A_k^2 \rangle$. This assumption helps to simplify the analytical expression, but its not quantified for which level of perturbation this 'small instrument perturbation regime' is valid
 
 The analytical method by Lay 2004 writes out a perturbation of the analytical equation up to second order. Several terms are neglected and the remaining terms are used for an expression of the photon rate perturbation. Direct current terms and even harmonics can be taken out by a Fourier decomposition. The remaining expression for the variance of the signal at an individual output $j$ contains several noise-coupling terms which express the extend to which the specific instrumental perturbation mimics a planet signal. A method called phase chopping is applied, where the induced phase shift is swapped sign, which allows for the removal of the contribution of stray light, thermal emission and detector gain. Each remaining noise coupling term can be written as a Fourier transform of the best fitting planet template signal and the power spectral distribution of that noise term, which need to be defined by the user. This then feeds into signal to noise calculations.
 
@@ -348,7 +348,18 @@ An further analysis based on experiments could inform a more detailed model of t
    
 Although the 'signal' part of symmetrical sources can be filtered using incoherent combination, the noise part remains and contributes to the statistical noise. The ratio of the signal of the planet over the total noise at a specific wavelengths bin, at output 3 or 4, is then 
 
-$SNR_\lambda = \frac{ \int \sqrt{ \< S_{p}^2( \lambda ) \> } d \lambda }{ \sqrt{ 2 \int \left( S_{sym,3}(\lambda) + \sqrt{\< S_{p,3}^2(\lambda) \> \right) } d \lambda} } $
+$S
+NR_\lambda = 
+\frac{
+ \int \sqrt{ \< S_{p}^2( \lambda )} \> 
+ d \lambda 
+}
+{
+ \sqrt{
+ 2 \int \left( S_{sym,3}(\lambda) + 
+\sqrt{\< S_{p,3}^2(\lambda) \> \right)}
+ d \lambda} } 
+$
 
 The total SNR assuming uncorrelated noise between the bins, is then the square-root of the sum of squares of the SNR of each wavelength bin, which scales with the square-root of the integration time, area and detection 
 
@@ -720,20 +731,38 @@ Using a Mont Carlo simulation with Gaussian input piston errors, the standard de
 
 **Nulling interferometry in practice**
 
-Nulling interferometry has been shown to work in practice, namely through the Multiple Mirror Telescope in Arizona (Hinz et al. 1998) and the Keck Interferometer Nuller using a double Bracewell setup, the Large Binocular Telescope Nulling Optimised Mid-Infrared Camera, GLINT integrated optics nulling combiner at Subaru/SCExAO, VLT/NACO from which a spectrum was obtained, ExoGRAVITY Lacour et al. 2019extremely good astrometric position of the planet. 
+Nulling interferometry has been shown to work in practice, namely through the Multiple Mirror Telescope in Arizona (Hinz et al. 1998) and the Keck Interferometer Nuller using a double Bracewell setup, the Large Binocular Telescope Nulling Optimised Mid-Infrared Camera, GLINT integrated optics nulling combiner at Subaru/SCExAO, VLT/NACO from which a spectrum was obtained, ExoGRAVITY Lacour et al. 2019 extremely good astrometric position of the planet. 
 
 Example figures from Lagadec et al. 2018
-To do: Study Principles of Stellar Interferometry pdf
 
-(1:03)
+**Sources of noise.**
+Following the notation of Huber et al. 2024, the photon rate at a certain bandwidth at a certain output channel $j$ of an interferometer is the sum of the photons collected within a wavelength span due to the instrument response $R$ to the image on the sky $I_{sky}$. In particular, the instrument response is related to the square modulus of the output electric field of output channel $j$, which is a function of the amplitudes, phase shifts, polarisation angles and positions of the $k$ collectors.
+$$ N_j(t, \lambda, \alpha, \beta) = w(\lambda)\int_\Omega R_j(t,\lambda,\alpha,\beta) I_{sky}(t,\lambda,\alpha, \beta) d\Omega \\
+\propto f_j (A,\phi_j,\theta, x(t), y(t), \lambda, \alpha, \beta $$
+
+The effect of instrumental perturbations on the photon rate can then be written as $$ (N_j+\delta N_j)(t, \lambda, \alpha, \beta) \propto f_j (A \circ \delta A(t,\lambda),\phi_j + \delta \phi_j(t,\lambda),\theta + \delta \theta (t,\lambda) , (x+\delta x)(t), (y+\delta y)(t), t, \lambda, \alpha, \beta $$
+
+
+
 **6. Sources of fundamental noise & LIFEsim**
-- Photon noise
-- Exo-zodiacal dust
-- Local zodiacal dust
-- P-pop MC tool
+Fundamental noise, also referred to as astrophysical noise, is an umbrella term for all true light signals that are contained in the measurement, that are not from the exoplanet of interest. In particular, these fundamental sources include, as described in Dannert et al. (2022):
+- True signal of the star, modelled as black body radiation, neglecting limb darkening i.e. assuming constant brightness across the disk
+- True signal of the planet, modelled as black body radiation
+- Geometric stellar leakage: not all stellar flux is suppressed when the angular extent of the disk of the star is wider than the 'null' of the interferometer
+- Local zodiacal dust: Dust inside our own solar system adds radiation background via scattering of visible sunlight (not relevant for a MIR instrument) and thermal emission. Earlier work on DarwinSIM included a model of spectral surface brightness. Local zodiacal light is *diffuse*, which means it comes from different directions, with different phases, rather than a coherent wavefront, so it cannot be brought to destructive interference. The most effective way of minimizing this contribution is by observing away from local dust.
+- Exozodiacal dust: Generally modelled as optically thin, symmetric with a power law surface density. The temperature of the dust depends on distance from the central star. Most of the radiation originates from the (hottest) central region. High-luminosity stars are expected to have larger disks. Larger disks have larger surface areas, thus larger fluxes. A symmetric disk can be filtered out, but its light does contribute to shot noise.
+A software called LIFESim has been developed in the context of the LIFE mission to simulate its yield. The code currently includes fundamental noise with the option to include instrumental noise in the future. 
+
+P-pop MC tool: To simulate the yield of realistic parameters for the LIFE mission, it needs to be tested on a synthetic population of exoplanets. This synthetic population is built using P-Pop [add reference and some sentences].  
 
 **7. Sources of instrumental noise**
-- Sources of instrumental noise
+- Sources of instrumental noise [description by Lay]
+
+
+In a comparison of the fundamental noise sources and instrumental noise, Dannert et al. (2022) report that the short wavelength section is dominated by astronomical noise from the host star, and that the low wavelength section is dominated by local zodiacal dust. Systematic noise is the largest at shorter wavelengths, which becomes relevant when considering that the fundamental noise limit must hold for all wavelength bins. Regarding photon noise sources, both contributions are modelled as constant, where the requirements on the dark current seem to be one order of magnitude more stringent than what has been achieved so far.
+
+hallohiero
+
 - Explanation how architecture leads to correlated noise
 - Study by Lay
 - Study for Asgard/NOTT
@@ -757,6 +786,7 @@ To do: Study Principles of Stellar Interferometry pdf
 
 ## Parking lot for ideas
 - Compare with literature for error propagation of LISA (Laser Interferometer Space Antenna for Gravitational Waves)
+- To do: Study Principles of Stellar Interferometry pdf
 
 
 ## Syntax for images, links, code snippets etcetera
