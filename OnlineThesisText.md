@@ -654,8 +654,6 @@ The main design of the LIFE space mission consists of 4 formation flying infrare
 <img src="https://github.com/LoesRuttenGithub/Thesis-Noise-Nulling/blob/main/Figures/Artists-impression-LIFE.png" width="700" height="300">
 
 **5. Physics of nulling interferometry**
-	- To be included!
-	- Optics, diffraction, PSF, wavefronts etc.
 
 Direct observation of a star and a planetary companion has several challenges. 
 
@@ -704,7 +702,7 @@ The concept of nulling interferometry for exoplanet detection was first proposed
 
 **Double Bracewell**
 
-Since then, different architectures have been proposed, including a double Bracewell by Angel & Woolf in 1996. The architecture of the single Bracewell was such that an improved angular resolution due to longer baselines also resulted in a larger image of the stellar disk, beyond the angular distance that was effectively nulled, thereby compensating the better resolution with stellar leakage. The double Bracewell consists of two pairs of nulls, that are offset by half a phase. When combining the two signals, this results in one differential null whose amplitude is zero, also in both the first and second order sensitivity to errors. This leads to an interference pattern with a central null that is broader in its angular extent, as shown in the Figure below. Upon rotation of the interferometer, contributions from an elliptical dust cloud would modulate at twice the frequency of a planet due to its symmetry axis, and therefore could be distinguished from a planet signal. Angel and Woolf showed that their architecture allowed for baselines extended beyond 50 meters, and found through simulations that this would allow for the detection of exoplanets at distances of 10 parsecs provided sufficient exposure time and exozodiacal dust levels similar to our own solar system.
+Since then, different architectures have been proposed, including a double Bracewell by Angel & Woolf in 1996. The architecture of the single Bracewell was such that an improved angular resolution due to longer baselines also resulted in a larger image of the stellar disk, beyond the angular distance that was effectively nulled, thereby compensating the better resolution with stellar leakage. The double Bracewell consists of two pairs of nulls, that are offset by half a phase. When combining the two signals, this results in one differential null whose amplitude is zero, also in both the first and second order sensitivity to errors. This leads to an interference pattern with a central null that is broader in its angular extent, as shown in the Figure below. Upon rotation of the interferometer, contributions from an elliptical dust cloud would modulate at twice the frequency of a planet due to its symmetry axis, and therefore could be distinguished from a planet signal. Angel and Woolf showed that their architecture allows for baselines to be extended beyond 50 meters, and found through simulations that this would allow for the detection of exoplanets at distances of 10 parsecs provided sufficient exposure time and exozodiacal dust levels similar to our own solar system. A more recent study by Dannert et al. 2022 noted that this trade-off between baseline and stellar leakage continues to exist. A baseline must be chosen such that the SNR is sufficient for all wavelengths of interest, with the most stringent SNR demand towards shorter wavelengths (in their simulation, around 8 $\mu m$, where the planet signal declines and the stellar signal increases.
 <img src="https://github.com/LoesRuttenGithub/Thesis-Noise-Nulling/blob/main/Figures/AngelWoolf.png" width="800" height="250">
 
 **Kernel nulling using a four-beam combiner**
@@ -713,12 +711,16 @@ In addition to stellar photon noise due to leakage of central light into the nul
 <img src="https://github.com/LoesRuttenGithub/Thesis-Noise-Nulling/blob/main/Figures/MartinacheIreland1.png" width="800" height="250">
 
 The sensitivity of the instrument to second-order phase differences can then be collected in a 6x6 matrix $A$. The next step is to find a kernel operator $K$ for which $K \dot A = 0$, so that the kernel applied to the six channels of the intensity vectors is independent of second-order phase differences: $K \cdot x$. As an example shown in the figure below, a phase shift of $\theta/2$ applied to the three nulled outputs results in six outputs with sensitivities as shown in the middle panel. The combination of signals 1-2, 3-4 and 5-6, leads the three kernel-nulls in the right panel, which are independent of phase shift errors to second order. 
+
 <img src="https://github.com/LoesRuttenGithub/Thesis-Noise-Nulling/blob/main/Figures/MartinacheIreland23.png" width="800" height="320">
+
+
 Given the spatial set-up of the detectors, the sensitivity of the 6 channels can be transferred into a transmission map, mapping the sensitivity of each channel to a 2D position in the sky, which now contain several anti-symmetries that constrain more information on location than the classically nulled channels. 
 
 Another key result of kernel-nulling is that the error in the null depth of the kernel-null outputs is symmetric, with uncertainties proportional to the cube of the phase errors: The figure below shows the results of a simulation of 50nm RMS residual piston excursions. In the presence of piston errors, the theoretical values become skewed distributions for both the 3 classically nulled outputs and the 6 modified outputs. This poses problems in post-processing [elaborate], while the right panel shows the symmetric kernel outputs whose mean value coincides with the true null depth and whose variance reveals the phase error.
 
 **Kernel nulling using an arbitrary number of apertures**
+
 Laugier et al. (2020) present a method to find combiner matrices for an arbitrary number of apertures, allowing to compare many different architectures.
 
 They first argue that, even though combiner matrices of all-in-one kernel nullers grow in complexity for larger numbers of outputs, they still seem to be the most efficient in comparison to multiplexing nullers, which work independently over a smaller number of sub-apertures, conserving a higher throughput per output at the cost of fewer robust observables and lower overall efficiency. The number of independent kernel nulls is always the same of the number of independent closure phases: $\frac{(n_a-1)(n_a-2)}{2}}$. 
@@ -735,11 +737,12 @@ Nulling interferometry has been shown to work in practice, namely through the Mu
 Example figures from Lagadec et al. 2018
 
 **Sources of noise.**
+
 Following the notation of Huber et al. 2024, the photon rate at a certain bandwidth at a certain output channel $j$ of an interferometer is the sum of the photons collected within a wavelength span due to the instrument response $R$ to the image on the sky $I_{sky}$. In particular, the instrument response is related to the square modulus of the output electric field of output channel $j$, which is a function of the amplitudes, phase shifts, polarisation angles and positions of the $k$ collectors.
 $$ N_j(t, \lambda, \alpha, \beta) = w(\lambda)\int_\Omega R_j(t,\lambda,\alpha,\beta) I_{sky}(t,\lambda,\alpha, \beta) d\Omega \\
 \propto f_j (A,\phi_j,\theta, x(t), y(t), \lambda, \alpha, \beta $$
 
-The effect of instrumental perturbations on the photon rate can then be written as $$ (N_j+\delta N_j)(t, \lambda, \alpha, \beta) \propto f_j (A \circ \delta A(t,\lambda),\phi_j + \delta \phi_j(t,\lambda),\theta + \delta \theta (t,\lambda) , (x+\delta x)(t), (y+\delta y)(t), t, \lambda, \alpha, \beta $$
+The effect of instrumental perturbations on the photon rate can then be written as $$ (N_j+\delta N_j)(t, \lambda, \alpha, \beta) \propto f_j (A \circ \delta A(t,\lambda),\phi_j + \delta \phi_j(t,\lambda),\theta + \delta \theta (t,\lambda) , (x+\delta x)(t), (y+\delta y)(t), t, \lambda, \alpha, \beta) $$
 
 
 
@@ -755,17 +758,50 @@ A software called LIFESim has been developed in the context of the LIFE mission 
 P-pop MC tool: To simulate the yield of realistic parameters for the LIFE mission, it needs to be tested on a synthetic population of exoplanets. This synthetic population is built using P-Pop [add reference and some sentences].  
 
 **7. Sources of instrumental noise**
-- Sources of instrumental noise [description by Lay]
+Instrumental noise was studied analytically by Lay 2004 up to second-order error terms for a dual Bracewell nulling interferometer. Moreover, a wavelength dependent numerical model SCIFYSim for instrumental errors of the four-telescope kernel nuller proposed by Martinache & Ireland was developed by Laugier et al. 2022 for the *Nulling Observations of ExoplaneTs and dusT (NOTT) beam combiner* for the ground-based VLTI, which aims to resolve young giant exoplanets around nearby stars down to 5 mas with $10^5$ contrast in the L-band. 
 
+Main sources of errors listed in these papers are:
+- Aberrations in the beam produce variations in the focal plane complex amplitude upon injection into single-mode waveguides
+- Residual optical path errors, computed via the GRAVITY fringe tracker
+- Internal combiner chromatic errors, modelled using order 6 polynomial, which leads to imperfect nulling. Mitigated using variable thickness planes.
+- In ground-based instruments, longitudinal atmospheric dispersion can be a source of instrumental error, that is not relevant for space-based telescopes under consideration here, and for the VLTI is assumed to be compensated by ZnSe corrector plates to first order. 
+- Read-out noise
+- Thermal noise
 
-In a comparison of the fundamental noise sources and instrumental noise, Dannert et al. (2022) report that the short wavelength section is dominated by astronomical noise from the host star, and that the low wavelength section is dominated by local zodiacal dust. Systematic noise is the largest at shorter wavelengths, which becomes relevant when considering that the fundamental noise limit must hold for all wavelength bins. Regarding photon noise sources, both contributions are modelled as constant, where the requirements on the dark current seem to be one order of magnitude more stringent than what has been achieved so far.
+In a comparison of the fundamental noise sources and instrumental noise, Dannert et al. (2022) report that the short wavelength section is dominated by astronomical noise from the host star, and that the low wavelength section is dominated by local zodiacal dust. Systematic noise is the largest at shorter wavelengths, which becomes relevant when considering that the fundamental noise limit must hold for all wavelength bins. Regarding photon noise sources, both contributions are modelled as constant, where the requirements on the dark current seem to be one order of magnitude more stringent than what has been achieved so far. However, it is still relevant to study the effects of instrumental noise under more realistic assumptions. For example, a wavelength-dependent simulation that includes correlated noise by SCIFYSim for the VLTI (Laugier et al. 2022) shows that for bright stars, the pattern inserted by instrumental noise looks similar to that of a planet. 
 
-hallohiero
+**Examples of Covariance**
+Result from SCIFYSim: the inner part of the spectrum is correlated together, while the outer part of the spectrum is anti-correlated.
+
+Whitening
 
 - Explanation how architecture leads to correlated noise
 - Study by Lay
 - Study for Asgard/NOTT
 
+Dannert et al. 2022 express the signal to noise ratio per wavelength bin as
+$SNR_\lambda = 
+\frac{
+ \int \sqrt{ \< S_{p}^2( \lambda )} \> 
+ d \lambda 
+}
+{
+ \sqrt{
+ 2 \int ( S_{sym,3}(\lambda) + 
+\sqrt{\< S_{p,3}^2(\lambda) \> ) }
+ d \lambda} } 
+$
+The total SNR, assuming uncorrelated noise between the bins, would then be the square-root of the sum of squares of the SNR of each wavelength bin, which scales with the square-root of the integration time, area and detection efficiency. However, it may well be that the noise between nearby bins is correlated.
+
+**(Non-)Gaussian noise distributions*
+The distribution of errors is studied, and the Shapiro-Wilk test for 'Gaussian noise' fails beyond 400 samples for 3 seconds detector integration time. But Gaussian model is still practical to use. (Asgard Nott)
+Martinache and Ireland kernel noise.
+
+**Signal extraction**
+
+Different signal extraction processes have been proposed. In earlier papers, match filtering was the default method, where the measured output signals are cross-correlated to synthetic signals for a range of planet positions. More recent methods, such as described in Dannert et al. (2022) use a maximum likelihood method, finding the best match with a model within the Bayesian framework. This probabilistic framework also allows one to determine a false alarm rate via a Monte Carlo simulation.
+
+Detection test: energy detector test, Neyman-Pearson test
 
 **8. State of the art**
 **8c. Open questions for numerical simulations**
@@ -781,6 +817,7 @@ hallohiero
 - Statistical framework by Ceau for Kernel-phase detection limits
 - Covariance matrix
 - $\tau(z)$: While subtracting electric field vectors from two sources at symmetric positions in the field of view cancel out kernel nulls $k(z)$, the complementary observable to the kernel null, Laugier et al. (2020) suggest that $\tau(z)$, the sum of the two outputs, may encode information about the input phase errors. It will be a subgoal of this thesis to explore the information contained in $\tau(z)$.
+- Time-correlation: In SCIFYSim (Laugier et al. 2022) it is assumed that detection integration time measurements are statistically independent. The data is averaged over several chunks or 'observing blocks' whose errors are assumed uncorrelated.
 
 
 ## Parking lot for ideas
