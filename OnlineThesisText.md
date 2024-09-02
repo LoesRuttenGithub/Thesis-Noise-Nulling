@@ -355,8 +355,8 @@ $SNR_\lambda =
 }
 {
  \sqrt{
- 2 \int \left( S_{sym,3}(\lambda) + 
-\sqrt{\< S_{p,3}^2(\lambda) \> \right) }
+ 2 \int ( S_{sym,3}(\lambda) + 
+\sqrt{\< S_{p,3}^2(\lambda) \> ) }
  d \lambda} } 
 $
 
