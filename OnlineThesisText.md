@@ -348,8 +348,7 @@ An further analysis based on experiments could inform a more detailed model of t
    
 Although the 'signal' part of symmetrical sources can be filtered using incoherent combination, the noise part remains and contributes to the statistical noise. The ratio of the signal of the planet over the total noise at a specific wavelengths bin, at output 3 or 4, is then 
 
-$S
-NR_\lambda = 
+$SNR_\lambda = 
 \frac{
  \int \sqrt{ \< S_{p}^2( \lambda )} \> 
  d \lambda 
@@ -357,7 +356,7 @@ NR_\lambda =
 {
  \sqrt{
  2 \int \left( S_{sym,3}(\lambda) + 
-\sqrt{\< S_{p,3}^2(\lambda) \> \right)}
+\sqrt{\< S_{p,3}^2(\lambda) \> \right) }
  d \lambda} } 
 $
 
