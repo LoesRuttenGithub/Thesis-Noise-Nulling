@@ -418,7 +418,7 @@ It can also be shown that two input electric field vectors $z$ and $z'$ from sou
 
 The complementary observable to the kernel null is $\tau(z)$, the sum of the two outputs. It does not have the same robustness to aberrations, but it may be used to study brighter symmetrical features and encodes some information about the input phase errors. Therefore, $\tau$ may be useful to locate the minimum OPD error.  
 
-The maximum number of nulled outputs for a given number of apertures is $n_{max}=(n_a-1)!$, although some of them are a linear combinations of the response function of other nulls. The number of independent kernell nulls is always the same of the number of independent closure phases: $\frac{(n_a-1)(n_a-2)}{2}}. A complete nuller provides the maximum number $n_{kn}$ of independent observables.
+The maximum number of nulled outputs for a given number of apertures is $n_{max}=(n_a-1)!$, although some of them are a linear combinations of the response function of other nulls. The number of independent kernel nulls is always the same of the number of independent closure phases: $\frac{(n_a-1)(n_a-2)}{2}}$. A complete nuller provides the maximum number $n_{kn}$ of independent observables.
 
 The complex coefficients of $M$ can generally be written as $M_{l,k}=a_l \cdot e^{j\phi_{k,l}}$ where $a_l$ is a real coefficient that normalises the the column vectors. 
 
@@ -697,7 +697,7 @@ The concept of nulling interferometry for exoplanet detection was first proposed
 Since then, different architectures have been proposed, including a double Bracewell by Angel & Woolf in 1996. The architecture of the single Bracewell was such that an improved angular resolution due to longer baselines also resulted in a larger image of the stellar disk, beyond the angular distance that was effectively nulled, thereby compensating the better resolution with stellar leakage. The double Bracewell consists of two pairs of nulls, that are offset by half a phase. When combining the two signals, this results in one differential null whose amplitude is zero, also in both the first and second order sensitivity to errors. This leads to an interference pattern with a central null that is broader in its angular extent, as shown in the Figure below. Upon rotation of the interferometer, contributions from an elliptical dust cloud would modulate at twice the frequency of a planet due to its symmetry axis, and therefore could be distinguished from a planet signal. Angel and Woolf showed that their architecture allowed for baselines extended beyond 50 meters, and found through simulations that this would allow for the detection of exoplanets at distances of 10 parsecs provided sufficient exposure time and exozodiacal dust levels similar to our own solar system.
 <img src="https://github.com/LoesRuttenGithub/Thesis-Noise-Nulling/blob/main/Figures/AngelWoolf.png" width="800" height="250">
 
-**Kernel nullers**
+**Kernel nulling using a four-beam combiner**
 In addition to stellar photon noise due to leakage of central light into the null, on of the main practical limitations of nulling interferometry are piston errors. These errors originate from imperfect relative alignment of the apertures, leading to optical path difference errors that result in phase differences, causing the interference to be imperfectly destructive. Martinache & Ireland (2018) proposed a kernel-nulling architecture that is independent of path length errors. The term 'kernel' implies a quantity that is robust to certain errors. Although their architecture of four inputs, one bright output and three dark outputs, was proposed for the ground-based Very Large Telescope, the same concept works for space. They present a method for self-calibration from linear combinations of polluted data that reside in a space orthogonal to the source of perturbation. As shown in the figure below, the four inputs T 1 to 4 are transferred into one bright and three dark channels via coupling matrix N. Assuming small phase errors, a first order Taylor expansion allows one to write the electric field as a linear function of phase: $E_k=e^{(- j \phi_k)} \approx 1 - \phi_k$. The phases of the three nulled intensities can then be defined with respect to the phase of aperture $T_0$ as $x=\frac{1}{4} \times \left[ (+\phi_1-\phi_2-\phi_3)^2,  (-\phi_1+\phi_2-\phi_3)^2,  (-\phi_1-\phi_2+\phi_3)^2 \right]$. The piston-induced leak leak of the nuller is a function of the six parameters $\phi_k^2, \phi_k \times \phi_{l \neq k}$. To overcome this underconstrained problem, each nuller output is split into two non-symmetric outputs with help of a pre-defined phase offset $\theta$ as indicated by the 'phase shifters' in the figure below, so that the detector records an intensity vector of six components.
 
 <img src="https://github.com/LoesRuttenGithub/Thesis-Noise-Nulling/blob/main/Figures/MartinacheIreland1.png" width="800" height="250">
@@ -705,9 +705,20 @@ In addition to stellar photon noise due to leakage of central light into the nul
 The sensitivity of the instrument to second-order phase differences can then be collected in a 6x6 matrix $A$. The next step is to find a kernel operator $K$ for which $K \dot A = 0$, so that the kernel applied to the six channels of the intensity vectors is independent of second-order phase differences: $K \cdot x$. As an example shown in the figure below, a phase shift of $\theta/2$ applied to the three nulled outputs results in six outputs with sensitivities as shown in the middle panel. The combination of signals 1-2, 3-4 and 5-6, leads the three kernel-nulls in the right panel, which are independent of phase shift errors to second order. 
 <img src="https://github.com/LoesRuttenGithub/Thesis-Noise-Nulling/blob/main/Figures/MartinacheIreland23.png" width="800" height="320">
 Given the spatial set-up of the detectors, the sensitivity of the 6 channels can be transferred into a transmission map, mapping the sensitivity of each channel to a 2D position in the sky, which now contain several anti-symmetries that constrain more information on location than the classically nulled channels. 
-**setup with up to 6 telescopes and 10 differential nulled outputs**
 
- proposed by Laugier and colleagues in 2020. 
+Another key result of kernel-nulling is that the error in the null depth of the kernel-null outputs is symmetric, with uncertainties proportional to the cube of the phase errors: The figure below shows the results of a simulation of 50nm RMS residual piston excursions. In the presence of piston errors, the theoretical values become skewed distributions for both the 3 classically nulled outputs and the 6 modified outputs. This poses problems in post-processing [elaborate], while the right panel shows the symmetric kernel outputs whose mean value coincides with the true null depth and whose variance reveals the phase error.
+
+**Kernel nulling using an arbitrary number of apertures**
+Laugier et al. (2020) present a method to find combiner matrices for an arbitrary number of apertures, allowing to compare many different architectures.
+
+They first argue that, even though combiner matrices of all-in-one kernel nullers grow in complexity for larger numbers of outputs, they still seem to be the most efficient in comparison to multiplexing nullers, which work independently over a smaller number of sub-apertures, conserving a higher throughput per output at the cost of fewer robust observables and lower overall efficiency. The number of independent kernel nulls is always the same of the number of independent closure phases: $\frac{(n_a-1)(n_a-2)}{2}}$. 
+
+Using a Mont Carlo simulation with Gaussian input piston errors, the standard deviation was evaluated for a number of architectures: The simple Bracewell nuller, a 3-telescope kernel nuller (one bright channel, two dark channels, one independent kernel null), a 4-telescope kernel nuller (one bright channel, three dark channels, six independent nulls, and three independent kernel nulls) and a 6-telescope kernel nuller (one bright channel, 20 independent nulls, and 10 independent kernel nulls). The figure below shows the suppression of second-order phase noise by the kernel nulls (solid lines) compared to the classical nulls (dashed lines) provided that the input piston errors remain within the small phase approximation (left part of the plot). 
+
+<img src="https://github.com/LoesRuttenGithub/Thesis-Noise-Nulling/blob/main/Figures/Laugier20208.png" width="500" height="320">
+
+
+**Nulling interferometry in practice**
 
 Nulling interferometry has been shown to work in practice, namely through the Multiple Mirror Telescope in Arizona (Hinz et al. 1998) and the Keck Interferometer Nuller using a double Bracewell setup, the Large Binocular Telescope Nulling Optimised Mid-Infrared Camera, GLINT integrated optics nulling combiner at Subaru/SCExAO, VLT/NACO from which a spectrum was obtained, ExoGRAVITY Lacour et al. 2019extremely good astrometric position of the planet. 
 
@@ -741,7 +752,7 @@ To do: Study Principles of Stellar Interferometry pdf
 **8c. Further development of detection statistics**
 - Statistical framework by Ceau for Kernel-phase detection limits
 - Covariance matrix
-- $\tau(z)$
+- $\tau(z)$: While subtracting electric field vectors from two sources at symmetric positions in the field of view cancel out kernel nulls $k(z)$, the complementary observable to the kernel null, Laugier et al. (2020) suggest that $\tau(z)$, the sum of the two outputs, may encode information about the input phase errors. It will be a subgoal of this thesis to explore the information contained in $\tau(z)$.
 
 
 ## Parking lot for ideas
