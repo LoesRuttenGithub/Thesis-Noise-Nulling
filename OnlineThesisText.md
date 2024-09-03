@@ -617,8 +617,9 @@ Next thesis deadline: mid-June
 
 
 ## Quick_Summary
+**1. Introduction
 
-**1. Exoplanet science**
+**1.1 Exoplanet science**
 
 Since 1995, the number of detected exoplanets has increased from zero to over 5000. Based on large scale surveys, it is now expected that almost all stars host at least one planet. [reference to be added]. Small planets are more common than gas giants. Earth-sized planets are expected to exist in the habitable zone of approximately 20% of sunlike stars and in 40% of M-dwarfs. In addition to the rocky planets, gas giants and ice giants and their observed orbits in our own solar system, new types of planets were detected named "super-Earths" ($1.5-2 R_E$) and "mini-Neptunes", as well as the presence of 'hot jupiters': gas giants in very close orbits, with super-Earths even being the most common type of planet. The insights have led to improved theories  on the accretion of planets from proto-planetary disks. Moreover, the discovery of 'hot jupiters' let to theories on orbital migration of planets. More detailed and more complete detections of planetary systems are needed to consolidate such theories.
 
@@ -626,7 +627,7 @@ An open question is whether rocky exoplanets in the habitable zone of stars can 
 It has been argued by previous studies that 30 to 50 exoplanets need to be studied to get statistically robust results on the fraction of habitable rocky HZ exoplanets. 
 
 
-**2. Main detection methods for exoplanets**
+**1.2 Main detection methods for exoplanets**
 
 <img src="https://github.com/LoesRuttenGithub/Thesis-Noise-Nulling/blob/main/Figures/ExoplanetArchive.png" width="1000" height="400">
 
@@ -637,7 +638,7 @@ It has been argued by previous studies that 30 to 50 exoplanets need to be studi
 - Direct imaging: Detection of light from the planet itself, either by reflection of the (visible) starlight by the planet's albedo, or by recording the approximately black-body thermal emission from the planet itself. This requires very advanced instruments, such as the Hubble Space Telescope ACS and NICMOS instruments, the VLT's Spectro-Polarimetric High-contrast Exoplanet REsearch (SPHERE) and Keck's Near-Infrared Camera (NIRC2). The upcoming ELT will contain next level direct imaging possibilities through its instruments METIS, PCS and HIRES. NASA has proposed the Habitable Exoplanet Observatory and Large UV/Optical/IR Surveyor LUVOIR missions as *space-based* direct imaging instruments focussing mainly on coronography based techniques to detect visible starlight of sun-like stars reflected from the surfaces of exoplanets. On the other hand, efforts are made among a predominantly Europe-based informal LIFE consortium to include a formation-flying four-aperture infrared nulling-interferometer in the next ESA program. ESA is also exploring the feasibility of more technologically ready alternative space-based nulling interferometer with four apertures mounted at fixed positions on a single spacecraft. A general framework for instrumental noise for a family of architectures of space-based nulling interferometers is the focus of this thesis.
 
 
-**3. Assets of infrared nulling interferometry**
+**1.3. Assets of infrared nulling interferometry**
 
 Despite the ambitious planned missions using a range of exoplanet observation methods, there are several additional aspects that a space-based mid-infrared nulling interferometry mission would bring to the table.
 - Direct imaging puts more direct constraints on temperature and size of the objects than indirect methods, which are based on several assumptions.
@@ -645,15 +646,15 @@ Despite the ambitious planned missions using a range of exoplanet observation me
 - The infrared spectrum includes molecular absorption lines revealing information about planetary atmospheres, including biosignatures.
 - More favourable contrast ratio than interferometry in the visible light: The thermal emission of exoplanets lies in infrared wavelengths, while the light of stars peaks in the visible spectrum (depending on the type). Therefore the required contrast of an instrument to disentangle the signature of the planet from that of the host star is more favourable in the infrared $c\approx 10^6$ than in the visible $c\approx 10^{10}$. 
 
-
-
-**4. Main design and predicted yield**
+**1.4. Main design and predicted yield**
 
 The main design of the LIFE space mission consists of 4 formation flying infrared telescopes, with apertures to be determined between 2 and 3.5m in a 6:1 X-array configuration, with baselines of 10m to maximum 600m. A mission would consist of a detection phase followed by a characterisation phase which features a second visit to a detected exoplanet. However, the optimal design is an active field of study, with the relevant metrics an active topic of debate. In addition to formation flying, a single-mount configuration is an option. Besides an X-array configuration, a relevant candidate is a linear array representing a double bracewell as described by Angel and Woolf (1997), which has a broader central null to exclude an extended image of a central star. This thesis aims to describe a general framework applicable to multiple configurations. In a study for the yield, a detection criterion of S/N>7 was applied, where the S/N was taken as the square root of the sum of the instrumental and astrophysical noise. For 2m apertures and 5% throughput, in a radius of 20 pc, $\approx 550$ exoplanets with radii between 0.5 and 6 $R_E$ could be detected, of which 25-45 rocky exoplanets within the empirical habitable zone. A large number of these planets would be around nearby M-dwarfs, to which IR interferometry is more sensitive.
 
 <img src="https://github.com/LoesRuttenGithub/Thesis-Noise-Nulling/blob/main/Figures/Artists-impression-LIFE.png" width="700" height="300">
 
-**5. Physics of nulling interferometry**
+**2. Theory **
+
+**2.1 Diffraction limit**
 
 Direct observation of a star and a planetary companion has several challenges. 
 
@@ -676,8 +677,11 @@ The combination of working on a high contrast problem within the diffraction lim
 
 Therefore it is key to remove starlight before recording it. One method is coronography, a method to block on-axis light before the light is recorded by the telescope. This method is not discussed in detail here. A fundamental limitation to coronography is still the diffraction limit of the aperture, which means the spatial resolution is limited. This is a limiting factor for the study of terrestrial exoplanets in habitable zones, because they have smaller angular separations from their host stars than gas giants and ice giants. Angular resolution can be enhanced one step further via interferometry. 
 
+**2.2 Complex notation of light**
 
-**Interferometry**
+[...]
+
+**2.3 Interferometry**
 
 In interferometry, the baseline between the two telescopes determines the diffraction limit. An interferometer probes spatial frequency coordinates $u, v$ of an object.
 As stated by the Van Cittert-Zernike theorem, the Fourier transform of the intensity distribution function of a distant, incoherent source is equal to its complex visibility $V(u,c)$:
@@ -692,7 +696,7 @@ From the fringe pattern created by multiple subapertures, one an extract an ampl
 
 
 
-**Nulling interferometry**
+**2.4 Nulling interferometry**
 
 A symmetric source will have light that perfectly interferes, which means that the minima of the fringe pattern cancel to zero flux. However, if the object of interest also contains off-axis light (for example, a planet), then the flux from the asymmetric source does not exactly equal zero at the bottom fringe. Nulling interferometry studies this 'almost null' in detail. However, in practice, the non-zero signal at the 'null' is also plagued by several sources of astrophysical and instrumental noise. This is predominantly due to leakage of random photon noise from the host star, which scales with the square-root of the host star's intensity. Therefore, further solutions are needed in the optical design of interferometers to separate the noise contributions from the off-axis signal of the planet, where possible before detection, and otherwise in post-processing, by applying statistical methods that are grounded in a physical understanding of the noise. 
 
@@ -736,7 +740,7 @@ Nulling interferometry has been shown to work in practice, namely through the Mu
 
 Example figures from Lagadec et al. 2018
 
-**Sources of noise.**
+**3. Sources of noise**
 
 Following the notation of Huber et al. 2024, the photon rate at a certain bandwidth at a certain output channel $j$ of an interferometer is the sum of the photons collected within a wavelength span due to the instrument response $R$ to the image on the sky $I_{sky}$. In particular, the instrument response is related to the square modulus of the output electric field of output channel $j$, which is a function of the amplitudes, phase shifts, polarisation angles and positions of the $k$ collectors.
 $$ N_j(t, \lambda, \alpha, \beta) = w(\lambda)\int_\Omega R_j(t,\lambda,\alpha,\beta) I_{sky}(t,\lambda,\alpha, \beta) d\Omega \\
@@ -746,7 +750,7 @@ The effect of instrumental perturbations on the photon rate can then be written 
 
 
 
-**6. Sources of fundamental noise & LIFEsim**
+**3.1. Sources of fundamental noise & LIFEsim**
 Fundamental noise, also referred to as astrophysical noise, is an umbrella term for all true light signals that are contained in the measurement, that are not from the exoplanet of interest. In particular, these fundamental sources include, as described in Dannert et al. (2022):
 - True signal of the star, modelled as black body radiation, neglecting limb darkening i.e. assuming constant brightness across the disk
 - True signal of the planet, modelled as black body radiation
@@ -757,27 +761,45 @@ A software called LIFESim has been developed in the context of the LIFE mission 
 
 P-pop MC tool: To simulate the yield of realistic parameters for the LIFE mission, it needs to be tested on a synthetic population of exoplanets. This synthetic population is built using P-Pop [add reference and some sentences].  
 
-**7. Sources of instrumental noise**
-Instrumental noise was studied analytically by Lay 2004 up to second-order error terms for a dual Bracewell nulling interferometer. Moreover, a wavelength dependent numerical model SCIFYSim for instrumental errors of the four-telescope kernel nuller proposed by Martinache & Ireland was developed by Laugier et al. 2022 for the *Nulling Observations of ExoplaneTs and dusT (NOTT) beam combiner* for the ground-based VLTI, which aims to resolve young giant exoplanets around nearby stars down to 5 mas with $10^5$ contrast in the L-band. 
+**3.2. Sources of instrumental noise**
+Different frameworks exist to calculate the instrumental noise, that can be roughly grouped under the umbrellas of a 'numerical method' and a 'analytical method'. These methods have been reviewed by Huber et al. 2024. Instrumental noise was studied analytically by Lay 2004 up to second-order error terms for a dual Bracewell nulling interferometer. Moreover, a wavelength dependent semi-analytical model SCIFYSim for instrumental errors of the four-telescope kernel nuller proposed by Martinache & Ireland was developed by Laugier et al. 2022 for the *Nulling Observations of ExoplaneTs and dusT (NOTT) beam combiner* for the ground-based VLTI, which aims to resolve young giant exoplanets around nearby stars down to 5 mas with $10^5$ contrast in the L-band. On the other hand, a fully numerical model called PHRINGE was developed by Huber et al. 2024.
 
-Main sources of errors listed in these papers are:
-- Aberrations in the beam produce variations in the focal plane complex amplitude upon injection into single-mode waveguides
-- Residual optical path errors, computed via the GRAVITY fringe tracker
-- Internal combiner chromatic errors, modelled using order 6 polynomial, which leads to imperfect nulling. Mitigated using variable thickness planes.
-- In ground-based instruments, longitudinal atmospheric dispersion can be a source of instrumental error, that is not relevant for space-based telescopes under consideration here, and for the VLTI is assumed to be compensated by ZnSe corrector plates to first order. 
-- Read-out noise
-- Thermal noise
+Main sources of instrumental errors listed in the papers are:
+- 1) Imperfections in the amplitude response due to (static, linear) errors in the reflectivity of the optics. Higher-order wave-front errors, tilt errors, focus, astigmatism, coma and beam shear all have non-linear responses which have to be modelled in detail.
+- 2) Imperfection in the phase response of each arms, including optical path length errors, dispersion and birefringence, which can be static (part of the equipment) or dynamic (drifts and vibrations). Fringe tracking corrects for this, but has its own imperfections.
+- 3) Errors in the positions of the collectors
+- 4) Errors in the polarisations, which will degrade the null depth.
+- ?) Internal combiner chromatic errors, modelled using order 6 polynomial, which leads to imperfect nulling. Mitigated using variable thickness planes.
+- 5) Fluctuations in the amount of stray light
+- 6) Thermally emitted photons
+- 7) Fluctuations in the detector gain
+- ?) Read-out noise
+- ?) In ground-based instruments, longitudinal atmospheric dispersion can be a source of instrumental error, that is not relevant for space-based telescopes under consideration here, and for the VLTI is assumed to be compensated by ZnSe corrector plates to first order. 
+
+The main steps of Lay's analytical method are as follows: Under the assumption that the dominant errors come from centrally symmetric starlight, local zodiacal light and exozodiacal light, the perturbation leakage $\delta N$ is defined as:
+$$\delta N_* \approx \Sum_j C_{Aj}^* \delta \alpha_j + C_{\phi_j}^*  \delta \phi_j + C_{xj}^* \delta x_j + C_{yj}^* \delta y_j + \Sum_j \Sum_k [ C_{AAjk}^* \delta a_j \delta a_k + C_{A \phi jk}^* \delta a_j \delta \phi_k + C_{\phi \phi jk}^* \delta \phi_j \delta \phi_k ] $$
+Where the $C$ terms are sensitivity coefficients containing sum of the partial derivatives for each source (*+EZ+LZ). The linear terms are geometric leakage perturbations and include errors in telescope position $x,y$. The second-order terms are null-floor perturbations, where only amplitude and phase square terms and cross terms are considered. As the latter are non-linear terms, calibration in postprocessing is not straight forward and therefore the second-order terms must be minimised in real time. Amplitude and phase perturbations are assumed to be uncorrelated, so that the average expectation value of linear terms and cross terms is zero, which means that the expected photon rate only has a contribution of $\rangle \delta a_j^2 \langle$ and  $\rangle \delta \phi_j^2 \langle$. Next, based on the rotation of the interferometer, these terms are analysed in the Fourier domain. Linear terms only contribute with a power spectral density function that is straight forward to separate from the planet signal to then be calibrated out, but for the binlinear (cross) terms, and the quadratic terms, the entire power spectra contribute noise to the measurement in a manner that is not possible to calibrate out. In particular, amplitude-phase cross-terms dominate the noise signal. In other words, the systematic error due to imperfect alignment, affecting the null stability, drives the instrument requirements, rather than the null depth, i.e. the effectiveness of the instrument to cancel the random photon noise.
+ The contributions of stray light, thermal emission and changes in detector gain can be removed via phase chopping. Analytical expressions for the planet signal, photon noise and systematic noise of the spectral channels can then be combined for a wavelength dependend signal to noise ratio. In the case of uncorrelated noise for each wavelength channel, these signals can be combined so the total SNR would scale down with a squareroot of the number of channels. However, in reality, amplitude and phase perturbations are highly correlated for similar wavlengths, which must be taken into account before making inferences on the total signal to noise ratio.
+
+
+The numerical method has four main steps, as shown in the figure below: First each instrument perturbation term is represented by a random time series generated based on a specific power spectrum. Then, based on these inputs, the perturbed instrument response is calculated. Thirdly, this is multiplied with the true signal so the photon rate per bin can be calculated. This is repeated for every timestep, so the result is a 'heatmap' showing the photon count at each wavelength for each point in time. 
+
+<img src="https://github.com/LoesRuttenGithub/Thesis-Noise-Nulling/blob/main/Figures/Huber20242.png" width="500" height="320">
+
+The benefits of the numerical method are its flexibility to be applied to different architectures, the possibility to investigate correlations between different wavelength channels for which no analytical framework exists, and it allows to investigate the validity of assumptions that the analytical framework is based on, such as the that the instrument perturbations have zero mean over the ensemble average: $Var(\delta A_k)=\langle\delta A_k^2 \rangle$. On the other hand, the benefits of analytical method are that the 'curse of dimensionality' of numerical integration can be omitted; as proper sampling for many variable dimensions requires a lot of computational time. The analytical method also provides a framework for detection statistics and noise distributions, so that meaningful confidence intervals and false-positive-fractions can be defined, whereas a numerical model is uninvertible. Co-development of both frameworks allows for a smart-numerical framework, where numerical shortcuts can be made based on analytical insights, while the information extracted from the data is maximised.
 
 In a comparison of the fundamental noise sources and instrumental noise, Dannert et al. (2022) report that the short wavelength section is dominated by astronomical noise from the host star, and that the low wavelength section is dominated by local zodiacal dust. Systematic noise is the largest at shorter wavelengths, which becomes relevant when considering that the fundamental noise limit must hold for all wavelength bins. Regarding photon noise sources, both contributions are modelled as constant, where the requirements on the dark current seem to be one order of magnitude more stringent than what has been achieved so far. However, it is still relevant to study the effects of instrumental noise under more realistic assumptions. For example, a wavelength-dependent simulation that includes correlated noise by SCIFYSim for the VLTI (Laugier et al. 2022) shows that for bright stars, the pattern inserted by instrumental noise looks similar to that of a planet. 
 
-**Examples of Covariance**
-Result from SCIFYSim: the inner part of the spectrum is correlated together, while the outer part of the spectrum is anti-correlated.
-
+**3.3. Examples of Covariance**
+- Explanation how architecture leads to correlated noise
 Whitening
 
-- Explanation how architecture leads to correlated noise
-- Study by Lay
-- Study for Asgard/NOTT
+Result from SCIFYSim: the inner part of the spectrum is correlated together, while the outer part of the spectrum is anti-correlated.
+
+
+
+
+
 
 Dannert et al. 2022 express the signal to noise ratio per wavelength bin as
 $SNR_\lambda = 
@@ -797,14 +819,31 @@ The total SNR, assuming uncorrelated noise between the bins, would then be the s
 The distribution of errors is studied, and the Shapiro-Wilk test for 'Gaussian noise' fails beyond 400 samples for 3 seconds detector integration time. But Gaussian model is still practical to use. (Asgard Nott)
 Martinache and Ireland kernel noise.
 
-**Signal extraction**
+**3.4. Signal extraction**
 
 Different signal extraction processes have been proposed. In earlier papers, match filtering was the default method, where the measured output signals are cross-correlated to synthetic signals for a range of planet positions. More recent methods, such as described in Dannert et al. (2022) use a maximum likelihood method, finding the best match with a model within the Bayesian framework. This probabilistic framework also allows one to determine a false alarm rate via a Monte Carlo simulation.
 
-Detection test: energy detector test, Neyman-Pearson test
+**Detection tests:**
+
+Research by Ceau et al. (2019) investigated several statistical methods to determine, given a data image, how likely it is that a companion is present. Although their motivation to explore this question was in the context of faint brown dwarf detection by the James Webb Space Telescope, their framework is equally valid for exoplanet detection via nulling interferometry and was already implemented for SCIFYSim by Laugier et al. 2022. Generally, a statistical test tests if a certain test statistic $T(y)$, which is a function of the data $y$ is above or below a certain threshold $\xi$, which represents the rejection of the null hypothesis. The performance of a detect test is given by its probability of false alarm ($p_{FA}$), as low as possible) and its probability of detection ($p_{det}$, as high as possible), and the power of a test is its $p_{det}$ for a given $p_{FA}, often represented in a Receiver Operating Characteristic (ROC) curve. 
+
+The likelihood ratio or Neyman-Pearson test requires the companion signature $x$ to be known. The test is then the ratio between dot product of the data $y$ with the signature $x$ over the data $y$ without signature ($x=0$) compared to a threshold. If $x$ is not known, this requirement can be omitted by testing it on all possible values of $x$ within a given parameter space. The generalised likelihood ratio is then a comparison between the maximum likelihood value for $x$, which must then exceed a certain threshold $\eta$. 
+
+If nothing is known about the signature, instead one can use an energy detector test, which uses the measured squared norm of the signal $||y||^2$. As the test does not exploit any prior knowledge of the structure of the object, it is a lower bound for the detection performance. 
+
+Another test statistic is the operational binary test $T_B$, which compares the chi squared value of the some model fitted on data y compared to no model fitted on data y (null hypothesis). The value $T_B$ quantifies how much the sum of squared residuals is reduced compared to the null hypothesis. 
+
+Ceau et al. 2019 apply the tests to a simulation of a binary system, with random noise that can be partly removed by whitening, while some systematic errors remain after subtraction of the kernel phases. The results show that the parameters can be estimated but that the scatter becomes larger for lower S/N. At angular separations below the diffraction limit, estimates for the contrast and angular separation are strongly correlated. The theoretical and simulated ROC curves are plotted for the different tests. The Neyman-Pearson is the most powerful test, giving an upper performance bound. The Energy test is the least powerful, providing a lower bound. The operational binary test lies in between, closer to the upper bound. The simulated tests also perform well when wavefront errors are introduced.
+
+**4. Software**
+-LIFESim
+-SCIFYSim
+-Phringe
+
 
 **8. State of the art**
 **8c. Open questions for numerical simulations**
+! Conclusies van Huber nog toevoegen!!!
 
 **8b. Open questions for instrumental noise**
 - Consequence of sub-optimal alignment, error trifecta
@@ -814,8 +853,7 @@ Detection test: energy detector test, Neyman-Pearson test
 
 
 **8c. Further development of detection statistics**
-- Statistical framework by Ceau for Kernel-phase detection limits
-- Covariance matrix
+- Covariance shrinkage Flasseur toevoegen!!!
 - $\tau(z)$: While subtracting electric field vectors from two sources at symmetric positions in the field of view cancel out kernel nulls $k(z)$, the complementary observable to the kernel null, Laugier et al. (2020) suggest that $\tau(z)$, the sum of the two outputs, may encode information about the input phase errors. It will be a subgoal of this thesis to explore the information contained in $\tau(z)$.
 - Time-correlation: In SCIFYSim (Laugier et al. 2022) it is assumed that detection integration time measurements are statistically independent. The data is averaged over several chunks or 'observing blocks' whose errors are assumed uncorrelated.
 
